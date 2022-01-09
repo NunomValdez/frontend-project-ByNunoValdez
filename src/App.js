@@ -1,17 +1,26 @@
 import './App.css';
 import "@material-tailwind/react/tailwind.css";
-import LandingPageHero from './landing-page-comp/LandingPageHero';
-import HeaderLandingPage from './header-components/HeaderLandingPage';
-import Dropdownn from './compo.tailwind/Dropdown';
+import LandingPage from './pages/homePage/HomePage';
+import Checkout from './pages/checkout/Checkout';
+
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom"
 
 
 function App() {
   return (
-    <div className="App">
-      <HeaderLandingPage />
-      <LandingPageHero />
-      <Dropdownn />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <>
+          <Route path="/" element={<LandingPage />} /> 
+          <Route path="/checkout" element={<Checkout />} />
+        </>
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 
