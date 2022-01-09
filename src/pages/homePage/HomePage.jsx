@@ -1,8 +1,9 @@
 import {useState, useEffect} from 'react'
+import Dropdownn from '../../components/compo.tailwind/Dropdown';
 import './HomePage.css';
 import Login from '../../components/login/Login';
 import FoodCatalog from './FoodCatalog';
-
+import Footer from './Footer';
 
 export default function LandingPage() {
 
@@ -24,6 +25,9 @@ export default function LandingPage() {
                     <div className="grid ">
                         <FoodCatalog />
                     </div>
+                </section>
+                <section>
+                    <Footer />
                 </section>
             </article>
         </>

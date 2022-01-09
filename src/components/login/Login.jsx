@@ -14,15 +14,16 @@ export default function Login() {
     }
 
     const handleClick= () => {
-        console.log(state);
+        window.localStorage.setItem(`user ${state}`, state);
     }
 
     return (
             <section>
                 <div className="flex">
                     <Input name="nome" onChange={handleChange} />
-                    <input type="button" value="Ok" onClick={handleClick} className="p-1 bg-tangerine bg-opacity-70 border-2 rounded-lg hover:bg-tangerine"/>
+                    <input type="button" value="Ok" onClick={handleClick} className="p-1 bg-diospiro bg-opacity-70 border-2 rounded-lg hover:bg-tangerine"/>
                 </div>
             </section>
     )
 }
+//se o utilizador nao existir, então pede registo, se existir faz o login

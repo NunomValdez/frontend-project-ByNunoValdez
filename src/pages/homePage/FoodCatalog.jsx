@@ -15,13 +15,17 @@ export default function FoodCatalog() {
         .then(resp=>resp.json())
         .then(data=> setfoodItems(data))
     }, [])
+
+    // na API fornecida vamos ter de ver se ha items em stock, se houver os pratos estarão disponiveis para compra, senao
+    //nao se pode comprar e o card deve aparecer indisponivel !
     
     console.log(foodItems)
     return ( 
     <>
-        <h1 className="row-span-full">Food Catalog</h1>
+        <h1 className="row-span-full text-2xl p-7 bg-slate-50">Food Catalog</h1>
         <div className="flex"> 
-            <FoodCards foodOptions={foodItems} />
+            <FoodCards foodOptions={foodItems} /> 
+            {/* o FoodCards vai receber o foodOption como props, e trabalhar o array dentro do cards */}
         </div>
         </>
     )

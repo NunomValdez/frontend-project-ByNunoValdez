@@ -5,7 +5,7 @@ export default function Input(props) {
     return (
         <InputIcon
             type="text"
-            color="teal"
+            color="amber"
             size="regular"
             outline={true}
             placeholder="Username"

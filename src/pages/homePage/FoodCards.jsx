@@ -6,13 +6,16 @@ export default function FoodCards(props) {
 
     return (
         <>
-            <div className="grid grid-cols-3 grid-rows-3 grid-flow-row gap-0.5">
+            <div className="grid grid-cols-3 auto-rows-auto grid-rows-3 grid-flow-row 
+             gap-10 bg-slate-100 min-w-min place-content-evenly">
                 {
                     props.foodOptions.map(
-                        (foodOption)=> <FoodCard
+                        (foodOption)=> 
+                        <FoodCard
                         food={foodOption}
                         key={foodOption.id}
                         className="col-auto"
+                        
                         />
                     )
                 }
@@ -20,4 +23,4 @@ export default function FoodCards(props) {
         </>
     )
 }
-// flex flex-row border-gray-900 grow flex-wrap
+// flex flex-row border-gray-900 grow flex-wrap      
