@@ -5,9 +5,9 @@ import Login from '../../components/login/Login';
 import FoodCatalog from './FoodCatalog';
 import Footer from './Footer';
 import ShopButton from '../checkout/ShopButton';
-export default function HomePage() {
+import PaginationCatalog from '../../components/compo.tailwind/Pagination';
 
-    
+export default function HomePage() {
 
     return (
         <>
@@ -24,6 +24,9 @@ export default function HomePage() {
                 <section>
                     <div className="grid sm:grid-col-1 md:grid-col-2 xl:grid-col-3 ">
                         <FoodCatalog />
+                    </div>
+                    <div>
+                        <PaginationCatalog />
                     </div>
                 </section>
                 <section className="flex shrink justify-center p-2.5">
