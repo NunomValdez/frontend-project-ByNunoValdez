@@ -4,32 +4,35 @@ import './HomePage.css';
 import Login from '../../components/login/Login';
 import FoodCatalog from './FoodCatalog';
 import Footer from './Footer';
-
-export default function LandingPage() {
+import ShopButton from '../checkout/ShopButton';
+export default function HomePage() {
 
     
 
     return (
         <>
-            <article className="h-4/6">
-                <section className=" bg-hero-pattern bg-fixed bg-no-repeat bg-center bg-cover min-h-screen" >
-                    <div className="flex justify-end text-white p-1 pr-4">
-                        <Login />
+            <main className="h-4/6">
+                <section className=" bg-hero-pattern bg-fixed bg-no-repeat bg-center bg-cover min-h-screen sm:min-h-screen" >
+                    <div className="flex flex-col items-center py-7 text-white text-opacity-75 " >
+                        <h1 className="text-7xl font-light my-40">Good Food</h1>
+                        <h2>The best food market</h2>
                     </div> 
-                    <div className="flex flex-col items-center py-16 text-white text-opacity-75 my-12" >
-                        <h1 className="text-7xl font-light">Good Food</h1>
-                        <h2>Your best food market</h2>
+                    <div className="flex justify-start text-white p-3 pl-8 m-6">
+                        <Login />
                     </div> 
                 </section>
                 <section>
-                    <div className="grid ">
+                    <div className="grid sm:grid-col-1 md:grid-col-2 xl:grid-col-3 ">
                         <FoodCatalog />
                     </div>
                 </section>
-                <section>
+                <section className="flex shrink justify-center p-2.5">
+                    <ShopButton nameButton="Go to cart" />
+                </section>
+                <section >
                     <Footer />
                 </section>
-            </article>
+            </main>
         </>
     )
 }

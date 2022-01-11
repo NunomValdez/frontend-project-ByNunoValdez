@@ -19,7 +19,8 @@ export default function FoodCatalog() {
     // na API fornecida vamos ter de ver se ha items em stock, se houver os pratos estarão disponiveis para compra, senao
     //nao se pode comprar e o card deve aparecer indisponivel !
     
-    console.log(foodItems)
+    console.log(foodItems);
+    
     return ( 
     <>
         <h1 className="row-span-full text-2xl p-7 bg-slate-50">Food Catalog</h1>

@@ -9,7 +9,8 @@ export default function Login() {
 
     const handleChange=(e)=>{
         setState(e.target.value); 
-        // sempre q se escreve, o onChange actualiza o setState, que dps podemos usar no handleClick p conseguimos usar o valor do value só aquando do click
+        // sempre q se escreve, o onChange actualiza o setState, que dps 
+        //podemos usar no handleClick p conseguimos usar o valor do value só aquando do click no botao 
         // console.log(e.target.value);
     }
 
@@ -21,9 +22,9 @@ export default function Login() {
             <section>
                 <div className="flex">
                     <Input name="nome" onChange={handleChange} />
-                    <input type="button" value="Ok" onClick={handleClick} className="p-1 bg-diospiro bg-opacity-70 border-2 rounded-lg hover:bg-tangerine"/>
+                    <input type="button" value="Ok" onClick={handleClick} className="p-1 bg-brick bg-opacity-70 border-2 rounded-lg hover:bg-tangerine"/>
                 </div>
             </section>
     )
 }
-//se o utilizador nao existir, então pede registo, se existir faz o login
+//fazer: se o utilizador nao existir: pede registo, se existir: faz o login

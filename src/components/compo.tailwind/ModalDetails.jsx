@@ -5,7 +5,7 @@ import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
 import Button from "@material-tailwind/react/Button";
 
-export default function ModalDetails() {
+export default function ModalDetails(props) {
     const [showModal, setShowModal] = React.useState(false);
 
     const setShowModalCode =(value)=>{
@@ -29,7 +29,7 @@ export default function ModalDetails() {
                     Modal Title
                 </ModalHeader>
                 <ModalBody>
-                    <p className="text-base leading-relaxed text-gray-600 font-normal">
+                    <p className="text-base leading-relaxed text-gray-600 font-light">
                         I always felt like I could do anything. That’s the main thing people
                         are controlled by! Thoughts- their perception of themselves! They're
                         slowed down by their perception of themselves. If you're taught you
@@ -48,7 +48,7 @@ export default function ModalDetails() {
                     </Button>
 
                     <Button
-                        color="green"
+                        color="lightGreen"
                         onClick={(e) => setShowModalCode(false)}
                         ripple="light"
                     >

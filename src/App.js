@@ -1,6 +1,6 @@
 import './App.css';
 import "@material-tailwind/react/tailwind.css";
-import LandingPage from './pages/homePage/HomePage';
+import HomePage from './pages/homePage/HomePage';
 import Checkout from './pages/checkout/Checkout';
 
 import {
@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <>
-          <Route path="/" element={<LandingPage />} /> 
+          <Route path="/" element={<HomePage />} /> 
           <Route path="/checkout" element={<Checkout />} />
         </>
       </Routes>

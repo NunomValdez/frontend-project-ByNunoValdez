@@ -6,8 +6,8 @@ export default function FoodCards(props) {
 
     return (
         <>
-            <div className="grid grid-cols-3 auto-rows-auto grid-rows-3 grid-flow-row 
-             gap-10 bg-slate-100 min-w-min place-content-evenly">
+            <div className="grid sm:grid-col2-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-auto grid-rows-3 grid-flow-row 
+             gap-10 bg-slate-100 min-w-min place-content-evenly sm:grid-col-1 md:grid-col-2 xl:grid-col-3 p-4">
                 {
                     props.foodOptions.map(
                         (foodOption)=> 
