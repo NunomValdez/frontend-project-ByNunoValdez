@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from '@material-tailwind/react/Button';
 
-// recebe por props do pai, a quantidade de produtos a comprar pelo user
+
+// recebe por props do pai, a quantidade de produtos a comprar pelo user para renderizar o nr de items à dta no botao
 
 export default function ShopButton(props) {
     return (

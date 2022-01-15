@@ -7,6 +7,9 @@ import Footer from './Footer';
 import ShopButton from '../checkout/ShopButton';
 import PaginationCatalog from '../../components/compo.tailwind/Pagination';
 
+// pôr nesta página a Store/redux, para que todos os componentes tenham acesso aos respectivos states q precisam
+// ver useContext
+
 export default function HomePage() {
 
     return (

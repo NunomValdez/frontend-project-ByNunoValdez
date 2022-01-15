@@ -3,6 +3,9 @@ import Pagination from "@material-tailwind/react/Pagination";
 import PaginationItem from "@material-tailwind/react/PaginationItem";
 import Icon from "@material-tailwind/react/Icon";
 
+
+
+
 export default function PaginationCatalog() {
     return (
         <Pagination>
@@ -22,8 +25,8 @@ export default function PaginationCatalog() {
 }
 
 // vai receber por props o nr total de items, e o nr de items por pagina
-//para fazermos o calculo do nr de páginas a renderizar---- 
-//saber a length do array(- )enviado por props
-// pelo componente pai o tamanho do array), 
-//fazer a divisao da length pelo nr de items por pagina (6), 
+// para fazermos o calculo do nr de páginas a renderizar---- 
+// saber a length do array(- )enviado por props
+// pelo componente pai - HomePage), 
+// fazer a divisao da length pelo nr de items por pagina (6), 
 // com esse nr, fazer uma renderização dinamica com um while ou map

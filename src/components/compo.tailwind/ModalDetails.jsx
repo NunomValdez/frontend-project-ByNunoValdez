@@ -6,7 +6,7 @@ import ModalFooter from "@material-tailwind/react/ModalFooter";
 import Button from "@material-tailwind/react/Button";
 
 export default function ModalDetails(props) {
-    const [showModal, setShowModal] = React.useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const setShowModalCode =(value)=>{
         setShowModal(value);
@@ -26,20 +26,30 @@ export default function ModalDetails(props) {
 
             <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
                 <ModalHeader toggler={() => setShowModal(false)}>
-                    Modal Title
+                    {props.name}
+                    <Button
+                    className="flex "
+                        color="orange"
+                        size="sm"
+                        >
+                                +
+                    </Button>
                 </ModalHeader>
                 <ModalBody>
                     <p className="text-base leading-relaxed text-gray-600 font-light">
-                        I always felt like I could do anything. That’s the main thing people
-                        are controlled by! Thoughts- their perception of themselves! They're
-                        slowed down by their perception of themselves. If you're taught you
-                        can’t do anything, you won’t do anything. I was taught I could do
-                        everything.
+                        {props.description}
+                        {/* <select name="Extras" id="extras-dish">
+                            {
+                                //props.extras.map((extra)=>{
+                                    <option>ingredient {extra}</option>
+                                })
+                            }
+                        </select> */}
                     </p>
                 </ModalBody>
                 <ModalFooter>
                     <Button 
-                        color="red"
+                        color="brown"
                         buttonType="link"
                         onClick={(e) => setShowModalCode(false)}
                         ripple="dark"
@@ -54,6 +64,7 @@ export default function ModalDetails(props) {
                     >
                         Save Changes
                     </Button>
+                  
                 </ModalFooter>
             </Modal>
         </>

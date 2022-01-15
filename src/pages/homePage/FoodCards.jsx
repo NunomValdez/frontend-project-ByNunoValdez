@@ -3,6 +3,8 @@ import FoodCard from './FoodCard';
 
 export default function FoodCards(props) {
 
+    
+
 
     return (
         <>
@@ -12,8 +14,16 @@ export default function FoodCards(props) {
                     props.foodOptions.map(
                         (foodOption)=> 
                         <FoodCard
-                        food={foodOption}
+
+                        image={foodOption.image}
+                        name={foodOption.name}
+                        price={foodOption.price}
+                        description = {foodOption.Description}
+                        extras={foodOption.Extras}
+                        stock={foodOption.stock}
+
                         key={foodOption.id}
+
                         className="col-auto"
                         
                         />

@@ -8,19 +8,19 @@ export default function FoodCatalog() {
 
     //este componente vai ser o pai do catálogo de comidas, e dará aos filhos
     //as props que terão em si o array de pratos vindos do fetch à API, que de inicio é um array vazio,
-    //mas assim que o JSON é trabalhado, o array é populado com os pratos
+    //mas assim que o JSON é trabalhado, o array é populado com os pratos- 'https://61ddf19df60e8f0017668b31.mockapi.io/api/Menu'
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch('https://61ddf19df60e8f0017668b31.mockapi.io/api/Menu')
         .then(resp=>resp.json())
         .then(data=> setfoodItems(data))
-    }, [])
+    }, []);
 
     // na API fornecida vamos ter de ver se ha items em stock, se houver os pratos estarão disponiveis para compra, senao
     //nao se pode comprar e o card deve aparecer indisponivel !
     
     console.log(foodItems);
-    
+
     return ( 
     <>
         <h1 className="row-span-full text-2xl p-7 bg-slate-50">Food Catalog</h1>

@@ -31,6 +31,7 @@ import ModalDetails from "../../components/compo.tailwind/ModalDetails";
 
 export default function FoodCard(props) {
 
+
     const [modalOpen, setModalOpen] = useState(false);
 
         // const handleClickCard= ()=>{
@@ -41,21 +42,22 @@ export default function FoodCard(props) {
     return (
         <Card>
             <CardImage
-                src="shorturl.at/psBK0"
+            className="h-40"
+                src={`/assets/images${props.image}`}
                 alt="Card Image"
+                
             />
 
             <CardBody>
-                <H6 color="lime">Card Title</H6>
-                <Paragraph color="gray">
-                    Don't be scared of the truth because we need to restart the human
-                    foundation in truth And I love you like Kanye loves Kanye I love
-                    Rick Owens’ bed design but the back is...
-                </Paragraph>
+                <H6 color="lime">{props.name}</H6>
+                <Paragraph color="gray">{props.description}</Paragraph>
             </CardBody>
 
             <CardFooter>
-                    <ModalDetails opened={modalOpen} />
+                    <ModalDetails name={props.name}  price={props.price}
+                     description = {props.description}
+                        extras={props.extras}
+                        opened={modalOpen} />
             </CardFooter>
             
         </Card>

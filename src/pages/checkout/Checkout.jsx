@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Checkout() {
 
-    // nesta página terá de vir, por props, um array de pratos selecionados pelo user 
+    // nesta página terá de vir, por props, um array de pratos selecionados pelo user - STORE/REDUX
 
     // tb tem de vir  a quantidade de pratos a comprar
 
