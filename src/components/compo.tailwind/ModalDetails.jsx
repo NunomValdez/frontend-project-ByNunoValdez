@@ -16,7 +16,7 @@ export default function ModalDetails(props) {
     return (
         <>
             <Button
-                color="amber"
+                color="deepOrange"
                 type="button"
                 onClick={(e) => setShowModalCode(true)}
                 ripple="light"

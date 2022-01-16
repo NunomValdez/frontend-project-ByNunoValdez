@@ -15,7 +15,7 @@ export default function HomePage() {
     return (
         <>
             <main className="h-4/6">
-                <section className=" bg-hero-pattern bg-fixed bg-no-repeat bg-center bg-cover min-h-screen sm:min-h-screen" >
+                <section className=" bg-hero-pattern bg-fixed bg-no-repeat bg-center bg-cover min-h-screen sm:min-h-screen " >
                     <div className="flex flex-col items-center py-7 text-white text-opacity-75 " >
                         <h1 className="text-7xl font-light my-40">Good Food</h1>
                         <h2>The best food market</h2>
@@ -28,10 +28,10 @@ export default function HomePage() {
                     <div className="grid sm:grid-col-1 md:grid-col-2 xl:grid-col-3 ">
                         <FoodCatalog />
                     </div>
-                    <div>
+                    {/* <div>
                         <PaginationCatalog />
-                    </div>
-                </section>
+                    </div>*/}
+                </section> 
                 <section className="flex shrink justify-center p-2.5">
                     <ShopButton nameButton="Go to cart" />
                 </section>

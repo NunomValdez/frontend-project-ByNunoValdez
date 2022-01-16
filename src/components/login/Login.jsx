@@ -22,7 +22,7 @@ export default function Login() {
             <section>
                 <div className="flex">
                     <Input name="nome" onChange={handleChange} />
-                    <input type="button" value="Ok" onClick={handleClick} className="p-1 bg-brick bg-opacity-70 border-2 rounded-lg hover:bg-tangerine "/>
+                    <input type="button" value="Ok" onClick={handleClick} className="p-1 bg-brick bg-opacity-70 border-2 ml-2 rounded-lg hover:bg-tangerine "/>
                 </div>
             </section>
     )

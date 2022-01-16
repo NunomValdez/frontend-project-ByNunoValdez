@@ -6,21 +6,41 @@ import Icon from "@material-tailwind/react/Icon";
 
 
 
-export default function PaginationCatalog() {
+export default function PaginationCatalog({itemsPerPage, totalItems, paginate}) {
+
+    const pageNumbers = []; 
+
+//o nr de páginas é dado pela divisao do total de items na api, pelo nr de items q 
+//queremos por página (6) ===> 25/6= nr q temos de arredondar por cima, para caberem tds
+
+    for(let i = 1; i <= Math.ceil(totalItems/itemsPerPage); i++ ){
+        pageNumbers.push(i); //assim vamos colocando o nr da página dentro do array de páginas
+    }  
+
     return (
+        <>
         <Pagination>
             <PaginationItem href="#last" ripple="dark">
                 <Icon name="keyboard_arrow_left" />
-            </PaginationItem>
-            <PaginationItem color="lime" href="#1" ripple="light">1</PaginationItem>
-            <PaginationItem href="#2" ripple="dark">2</PaginationItem>
-            <PaginationItem href="#3" ripple="dark">3</PaginationItem>
-            <PaginationItem href="#4" ripple="dark">4</PaginationItem>
-            <PaginationItem href="#5" ripple="dark">5</PaginationItem>
-            <PaginationItem href="#last" ripple="dark">
+           </PaginationItem>
+                {pageNumbers.map( number => {
+                return( 
+                    <PaginationItem 
+                        color="lime" 
+                        ripple="light" 
+                        key={number}
+                        // className="flex-row"
+                        onClick={()=>{
+                            paginate(number)
+                        }}
+                        > {number} 
+                        </PaginationItem>)
+                    })}     
+            <PaginationItem href="#last" ripple="dark"> 
                 <Icon name="keyboard_arrow_right" />
             </PaginationItem>
         </Pagination>
+        </>
     );
 }
 

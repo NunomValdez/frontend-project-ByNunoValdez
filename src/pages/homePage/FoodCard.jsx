@@ -42,7 +42,7 @@ export default function FoodCard(props) {
     return (
         <Card>
             <CardImage
-            className="h-40"
+            className="h-40 max-w-xs sm:max-w-xs"
                 src={`/assets/images${props.image}`}
                 alt="Card Image"
                 
