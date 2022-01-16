@@ -24,14 +24,14 @@ module.exports = {
         primary: '#ff4800',
         secundary: '#2196f3',
         transparent: 'transparent',
-       current: 'currentColor',
-       grafite: '#384543',
-       diospiro: '#EF6F53',
-       ivory: '#B1B2B4',
-       tangerine: '#F6A152',
-       brick: '#DC4E24',
-       mostard: '#E9AC31',
-       safire: '#4B8ABD'
+        current: 'currentColor',
+        grafite: '#384543',
+        diospiro: '#EF6F53',
+        ivory: '#B1B2B4',
+        tangerine: '#F6A152',
+        brick: '#DC4E24',
+        mostard: '#E9AC31',
+        safire: '#4B8ABD'
       },
 
       backgroundImage:{

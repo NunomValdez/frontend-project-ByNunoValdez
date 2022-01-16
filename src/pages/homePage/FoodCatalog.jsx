@@ -47,7 +47,8 @@ export default function FoodCatalog() {
             <PaginationCatalog 
             itemsPerPage={itemsPerPage} 
             totalItems={foodItems.length}
-            paginate={paginate}/>
+            paginate={paginate}
+            currentPage={currentPage}/>
         </div>
         
         </>

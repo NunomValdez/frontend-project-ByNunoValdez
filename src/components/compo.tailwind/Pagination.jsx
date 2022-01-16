@@ -6,14 +6,16 @@ import Icon from "@material-tailwind/react/Icon";
 
 
 
-export default function PaginationCatalog({itemsPerPage, totalItems, paginate}) {
+export default function PaginationCatalog({itemsPerPage, totalItems, paginate, currentPage}) {
 
-    const pageNumbers = []; 
+   
 
 //o nr de páginas é dado pela divisao do total de items na api, pelo nr de items q 
 //queremos por página (6) ===> 25/6= nr q temos de arredondar por cima, para caberem tds
+const pageNumbers = []; 
+const numberOfPages = Math.ceil(totalItems/itemsPerPage);
 
-    for(let i = 1; i <= Math.ceil(totalItems/itemsPerPage); i++ ){
+    for(let i = 1; i <= numberOfPages; ++i ){
         pageNumbers.push(i); //assim vamos colocando o nr da página dentro do array de páginas
     }  
 
@@ -26,7 +28,7 @@ export default function PaginationCatalog({itemsPerPage, totalItems, paginate}) 
                 {pageNumbers.map( number => {
                 return( 
                     <PaginationItem 
-                        color="lime" 
+                        color={currentPage === number ? "lime" : "gray" }
                         ripple="light" 
                         key={number}
                         // className="flex-row"

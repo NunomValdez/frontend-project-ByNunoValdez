@@ -25,7 +25,7 @@ export default function HomePage() {
                     </div> 
                 </section>
                 <section>
-                    <div className="grid sm:grid-col-1 md:grid-col-2 xl:grid-col-3 ">
+                    <div>
                         <FoodCatalog />
                     </div>
                     {/* <div>
@@ -44,3 +44,5 @@ export default function HomePage() {
 }
 
 // flex items-center justify-center py-9
+
+// className="grid sm:grid-col-1 md:grid-col-2 xl:grid-col-3 h-fit "   - foodCatalog
