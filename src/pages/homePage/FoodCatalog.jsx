@@ -30,10 +30,25 @@ export default function FoodCatalog() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage; // (o 1º elem da pagina é = ao index do ultimo elem - o nr de elementos por pagina)
     const currentItems = foodItems.slice(indexOfFirstItem, indexOfLastItem); //delimita os elem q aparecem em cada pagina
 
+    const numberOfPages = Math.ceil((foodItems.length)/itemsPerPage);
+    //como fiz na paginação, desta maneira temos o nr de páginas a serem renderizadas (arredondando por cima)
+
 
     //metodo para mudar a página (recebe o nr da página do filho):
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
+    }
+
+    const handleLeftClick = ()=>{
+        console.log('ok entrei no clique')
+        if(currentPage > 1 ){
+        setCurrentPage(currentPage - 1)
+    }}
+
+    const handleRightClick= ()=>{
+        if(currentPage <  numberOfPages){
+            setCurrentPage(currentPage +1)
+        }
     }
 
     return ( 
@@ -45,6 +60,8 @@ export default function FoodCatalog() {
         </div>
         <div>
             <PaginationCatalog 
+            handleLeftClick={handleLeftClick}
+            handleRightClick={handleRightClick}
             itemsPerPage={itemsPerPage} 
             totalItems={foodItems.length}
             paginate={paginate}

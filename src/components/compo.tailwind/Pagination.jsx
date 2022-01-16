@@ -6,7 +6,8 @@ import Icon from "@material-tailwind/react/Icon";
 
 
 
-export default function PaginationCatalog({itemsPerPage, totalItems, paginate, currentPage}) {
+export default function PaginationCatalog({itemsPerPage, totalItems, paginate,
+     currentPage, handleLeftClick, handleRightClick}) {
 
    
 
@@ -22,7 +23,7 @@ const numberOfPages = Math.ceil(totalItems/itemsPerPage);
     return (
         <>
         <Pagination>
-            <PaginationItem href="#last" ripple="dark">
+            <PaginationItem ripple="dark" onClick={()=>handleLeftClick()} className="cursor-pointer">
                 <Icon name="keyboard_arrow_left" />
            </PaginationItem>
                 {pageNumbers.map( number => {
@@ -31,14 +32,14 @@ const numberOfPages = Math.ceil(totalItems/itemsPerPage);
                         color={currentPage === number ? "lime" : "gray" }
                         ripple="light" 
                         key={number}
-                        // className="flex-row"
+                        className="cursor-pointer"
                         onClick={()=>{
                             paginate(number)
                         }}
                         > {number} 
                         </PaginationItem>)
                     })}     
-            <PaginationItem href="#last" ripple="dark"> 
+            <PaginationItem ripple="dark" onClick={()=>handleRightClick()} className="cursor-pointer"> 
                 <Icon name="keyboard_arrow_right" />
             </PaginationItem>
         </Pagination>

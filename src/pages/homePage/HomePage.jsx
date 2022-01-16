@@ -14,8 +14,8 @@ export default function HomePage() {
 
     return (
         <>
-            <main className="h-4/6">
-                <section className=" bg-hero-pattern bg-fixed bg-no-repeat bg-center bg-cover min-h-screen sm:min-h-screen " >
+            <main className="h-4/5">
+                <section className=" bg-hero-pattern bg-fixed bg-no-repeat bg-center bg-cover h-4/5 sm:min-h-screen " >
                     <div className="flex flex-col items-center py-7 text-white text-opacity-75 " >
                         <h1 className="text-7xl font-light my-40">Good Food</h1>
                         <h2>The best food market</h2>
