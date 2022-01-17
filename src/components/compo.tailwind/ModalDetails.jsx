@@ -4,6 +4,7 @@ import ModalHeader from "@material-tailwind/react/ModalHeader";
 import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
 import Button from "@material-tailwind/react/Button";
+import ShopButton from "../../pages/checkout/ShopButton";
 
 export default function ModalDetails(props) {
     const [showModal, setShowModal] = useState(false);
@@ -16,7 +17,7 @@ export default function ModalDetails(props) {
     return (
         <>
             <Button
-                color="deepOrange"
+                color="orange"
                 type="button"
                 onClick={(e) => setShowModalCode(true)}
                 ripple="light"
@@ -27,13 +28,6 @@ export default function ModalDetails(props) {
             <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
                 <ModalHeader toggler={() => setShowModal(false)}>
                     {props.name}
-                    <Button
-                    className="flex "
-                        color="orange"
-                        size="sm"
-                        >
-                                +
-                    </Button>
                 </ModalHeader>
                 <ModalBody>
                     <p className="text-base leading-relaxed text-gray-600 font-light">
@@ -45,6 +39,14 @@ export default function ModalDetails(props) {
                                 })
                             }
                         </select> */}
+                <Button
+                className="flex w-fit"
+                color="purple"
+                size="sm"
+                >
+                    Add to cart
+                        {/* <ShopButton numberShop={3} nameButton={'Add to cart'} /> */}
+                </Button>
                     </p>
                 </ModalBody>
                 <ModalFooter>
@@ -58,7 +60,7 @@ export default function ModalDetails(props) {
                     </Button>
 
                     <Button
-                        color="lightGreen"
+                        color="lime"
                         onClick={(e) => setShowModalCode(false)}
                         ripple="light"
                     >

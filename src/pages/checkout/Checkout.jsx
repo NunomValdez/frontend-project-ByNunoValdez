@@ -1,6 +1,10 @@
-import React from 'react'
+import Button from '@material-tailwind/react/Button';
+import React from 'react';
+import './checkout.css';
+import ShopButton from './ShopButton';
+import Form from './Form';
 
-export default function Checkout() {
+export default function Checkout(props) {
 
     // nesta página terá de vir, por props, um array de pratos selecionados pelo user - STORE/REDUX
 
@@ -12,12 +16,29 @@ export default function Checkout() {
     
 
     return (
-        <section>
-            <div className=""> {/* container do produto - preço */}
-                <div>product</div>
-                <div>price</div>
-            </div>
+    <section className="mx-auto mt-4 sm:justify-evenly">
+            <section className="flex flex-col w-auto justify-between "> 
+                        
+                <h1 className="text-4xl p-2">Shopping Cart</h1>
 
-        </section>
+                <div id="product-checkout" className="products flex flex-row border-b border-dashed border-black ">
+                    <h2 className="text-safire text-lg">Produto</h2>
+                    <p>Preço do produto</p>
+                    
+                </div>
+
+                <div className="flex products flex-row border-b border-dashed  border-black">
+                    < h2 className=" text-safire text-lg">Total</h2>
+                    <p>preço da cena toda</p>
+                </div>
+                
+            </section>
+            <div className="my-14 w-4/5 mx-auto">
+                <Form />
+            </div>
+             <section className="flex justify-center mt-8">
+                    <ShopButton nameButton="Shop Now"/>
+            </section>
+    </section>
     )
 }

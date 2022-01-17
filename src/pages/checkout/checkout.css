@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(250, 250, 250);
+    width: 85vw;
+    text-align: center;
+    margin: auto;}
+h1{
+    font-family: sans-serif;
+}
+
+.products{
+    justify-content: space-between;
+    margin-top: 10vh;
+}

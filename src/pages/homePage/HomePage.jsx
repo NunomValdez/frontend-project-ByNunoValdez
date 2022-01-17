@@ -33,7 +33,7 @@ export default function HomePage() {
                     </div>*/}
                 </section> 
                 <section className="flex shrink justify-center p-2.5">
-                    <ShopButton nameButton="Go to cart" />
+                    <ShopButton nameButton="Go to cart" numberShop={4}/>
                 </section>
                 <section >
                     <Footer />

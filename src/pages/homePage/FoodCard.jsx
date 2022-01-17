@@ -54,10 +54,12 @@ export default function FoodCard(props) {
             </CardBody>
 
             <CardFooter>
-                    <ModalDetails name={props.name}  price={props.price}
-                     description = {props.description}
-                        extras={props.extras}
-                        opened={modalOpen} />
+                    <ModalDetails 
+                    name={props.name}  
+                    price={props.price}
+                    description = {props.description}
+                    extras={props.extras}
+                    opened={modalOpen} />
             </CardFooter>
             
         </Card>

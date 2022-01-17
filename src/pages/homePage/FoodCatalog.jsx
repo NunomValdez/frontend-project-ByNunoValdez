@@ -40,7 +40,6 @@ export default function FoodCatalog() {
     }
 
     const handleLeftClick = ()=>{
-        console.log('ok entrei no clique')
         if(currentPage > 1 ){
         setCurrentPage(currentPage - 1)
     }}
