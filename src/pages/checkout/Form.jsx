@@ -13,15 +13,15 @@ export default function Form() {
     // const [formIsValid, setFormIsValid] = useState(false);
     const [enteredAddress, setEnteredAddress]= useState('');
 
+    //ver como colocar o valor de cada input dentro de um objecto q englobe 
+    //todos os valores dos inputs
+
 //__Name
   const handleChangeName = (e) => {
       e.preventDefault();
     setFirstName(e.target.value);
   }
-  const handleClickName= (e)=>{
-    e.preventDefault();
-     setFirstName(e.target.value)
-  }
+  
 
 //__Email
 const emailChangeHandler=(e)=>{
@@ -36,42 +36,35 @@ const passwordChangeHandler=(e)=>{
     e.preventDefault();
     setEnteredPassword(e.target.value);
 }
-const handlePassClick=(e)=>{
-    e.preventDefault();
-    setEnteredPassword(enteredPassword);
-}
 //__ Address
 const handleEnteredAddress=(e)=>{
     e.preventDefault();
     setEnteredAddress(e.target.value);
-}
-const handleClickAddress=(e)=>{
-    e.preventDefault();
-    setEnteredAddress(enteredAddress);
-}
+    }
+
+    const handleForm=(e)=>{
+        console.log(e.target.value);
+    }
 
   //   const [emailState, dispatchEmail] = useReducer(emailReducer, {value:'', isValid: false});
 
 return (
-    <form className="flex flex-col ">
-
+    <>
+    <form className="flex flex-col align-middle ">
         <div>
-            <input type="text" onChange={handleChangeName} placeholder="Type your name" id="first-name" className="bg-zinc-100 border border-b border-slate-500 mt-4 p-6 " />
-            <button className="bg-safire text-white p-2 rounded-2xl mx-1.5" value={firstName} onClick={handleClickName}>Ok</button>
+            <input type="text" onChange={handleChangeName} placeholder="Type your name" id="first-name" className="bg-zinc-100 border border-b border-slate-500 mt-4 p-2 " />
         </div>
         <div>
-            <input type="email" onChange={emailChangeHandler} name="email" placeholder="Type your email" id="email" className="bg-zinc-100 border border-b border-slate-500 mt-4 p-6"/>
-            <button onClick={handleEnteredAddress} className="bg-safire text-white p-2 rounded-2xl mx-1.5">Ok</button>
+            <input type="email" onChange={emailChangeHandler} name="email" placeholder="Type your email" id="email" className="bg-zinc-100 border border-b border-slate-500 mt-2 p-2"/>
         </div>
         <div>
-            <input type="password" onChange={passwordChangeHandler} name="pass" placeholder="Password" id="pass" className="bg-zinc-100 border border-b border-slate-500 mt-4 p-6"/>
-            <button onClick={handlePassClick} className="bg-safire text-white p-2 rounded-2xl mx-1.5">Ok</button>
+            <input type="password" onChange={passwordChangeHandler} name="pass" placeholder="Password" id="pass" className="bg-zinc-100 border border-b border-slate-500 mt-2 p-2"/>
         </div>
         <div>
-            <input onChange={handleEnteredAddress} type="text" name="address" placeholder="Type your address" id="address" className="bg-zinc-100 border border-b border-slate-500 mt-4 p-6"/>
-            <button onClick={handleClickAddress} className="bg-safire text-white p-2 rounded-2xl mx-1.5">Ok</button>
+            <input onChange={handleEnteredAddress} type="text" name="address" placeholder="Type your address" id="address" className="bg-zinc-100 border border-b border-slate-500 mt-2 p-2"/>
         </div>
-        
     </form>
+    <button onClick={handleForm} className="bg-safire text-white p-2 w-fit rounded-2xl m-2">Ok</button>
+    </>
 )
 }

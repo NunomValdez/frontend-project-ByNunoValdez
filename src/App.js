@@ -6,7 +6,7 @@ import Checkout from './pages/checkout/Checkout';
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
 } from "react-router-dom"
 
 //o context tem de ser definido aqui, para q os vários states sejam globais...! (?)

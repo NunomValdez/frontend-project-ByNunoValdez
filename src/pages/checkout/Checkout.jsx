@@ -3,8 +3,10 @@ import React from 'react';
 import './checkout.css';
 import ShopButton from './ShopButton';
 import Form from './Form';
+import { useNavigate } from 'react-router-dom';
 
 export default function Checkout(props) {
+    const navigate = useNavigate();
 
     // nesta página terá de vir, por props, um array de pratos selecionados pelo user - STORE/REDUX
 
@@ -36,8 +38,9 @@ export default function Checkout(props) {
             <div className="my-14 w-4/5 mx-auto">
                 <Form />
             </div>
-             <section className="flex justify-center mt-8">
-                    <ShopButton nameButton="Shop Now"/>
+             <section className="flex justify-evenly mt-8">
+                <Button onClick={()=>navigate('/')}>Home</Button>
+                <ShopButton nameButton="Order"/>
             </section>
     </section>
     )

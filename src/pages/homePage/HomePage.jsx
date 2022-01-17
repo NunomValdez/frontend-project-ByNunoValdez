@@ -16,16 +16,23 @@ export default function HomePage() {
         <>
             <main className="h-4/5">
                 <section className=" bg-hero-pattern bg-fixed bg-no-repeat bg-center bg-cover h-4/5 sm:min-h-screen " >
-                    <div className="flex flex-col items-center py-7 text-white text-opacity-75 " >
-                        <h1 className="text-7xl font-light my-40">Good Food</h1>
-                        <h2>The best food market</h2>
-                    </div> 
-                    <div className="flex justify-start text-white p-3 pl-8 m-6">
-                        <Login />
-                    </div> 
+                    <div className="flex flex-col items-center">
+                        <div className="flex flex-col items-center py-7 text-white text-opacity-75 " >
+                            <h1 className="text-7xl font-light my-40">Good Food</h1>
+                            <h2 className="text-xl">The best food market</h2>
+                        </div>
+                        <div className="flex justify-start text-white p-3 pl-8 m-6">
+                            <Login />
+                        </div>
+                        <a href="#food-catalog">
+                            <svg xmlns="http://www.w3.org/2000/svg"  className="h-36 w-4/6" fill="none" viewBox="0 0 24 24" stroke="orange">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                            </svg>
+                        </a>
+                    </div>
                 </section>
                 <section>
-                    <div>
+                    <div id="food-catalog">
                         <FoodCatalog />
                     </div>
                     {/* <div>
