@@ -40,21 +40,23 @@ export default function FoodCard(props) {
 
 
     return (
-        <Card>
+        <Card className="shadow-md bg-gray-50 max-w-sm min-w-fit">
             <CardImage
-            className="h-40 max-w-xs sm:max-w-xs"
+            className="h-40 max-w-xs sm:max-w-xs "
                 src={`/assets/images${props.image}`}
                 alt="Card Image"
                 
             />
 
-            <CardBody>
+            <CardBody >
                 <H6 color="lime">{props.name}</H6>
-                <Paragraph color="gray">{props.description}</Paragraph>
+                <Paragraph color="gray" className="font-bold text-lg">{props.description}</Paragraph>
+                <Paragraph className="text-slate-800 font-semibold">{props.price}</Paragraph>
             </CardBody>
 
             <CardFooter>
                     <ModalDetails 
+                    image={props.image}
                     name={props.name}  
                     price={props.price}
                     description = {props.description}

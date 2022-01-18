@@ -52,8 +52,8 @@ export default function FoodCatalog() {
 
     return ( 
     <>
-        <h1 className="row-span-full text-2xl p-7 bg-slate-50">Food Catalog</h1>
-        <div className="flex"> 
+        <h1 className="row-span-full text-stone-800 text-4xl shadow-sm p-7 bg-slate-50">Food Catalog</h1>
+        <div className="flex justify-center"> 
             <FoodCards foodOptions={currentItems} /> 
             {/* o FoodCards vai receber o foodOption como props, e trabalhar o array dentro do cards */}
         </div>

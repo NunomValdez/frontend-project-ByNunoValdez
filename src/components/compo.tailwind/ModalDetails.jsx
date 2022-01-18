@@ -12,7 +12,7 @@ export default function ModalDetails(props) {
     const setShowModalCode =(value)=>{
         setShowModal(value);
     }
-
+     
 
     return (
         <>
@@ -29,9 +29,10 @@ export default function ModalDetails(props) {
                 <ModalHeader toggler={() => setShowModal(false)}>
                     {props.name}
                 </ModalHeader>
-                <ModalBody>
-                    <p className="text-base leading-relaxed text-gray-600 font-light">
-                        {props.description}
+                <ModalBody >
+                    <div className="text-base leading-relaxed text-gray-600 font-light flex">
+                    <img src={`/assets/images${props.image}`} alt="product image" className="w-24"/>
+                       "{props.description}"
                         {/* <select name="Extras" id="extras-dish">
                             {
                                 //props.extras.map((extra)=>{
@@ -39,17 +40,21 @@ export default function ModalDetails(props) {
                                 })
                             }
                         </select> */}
-                <Button
-                className="flex w-fit"
-                color="purple"
-                size="sm"
-                >
-                    Add to cart
-                        {/* <ShopButton numberShop={3} nameButton={'Add to cart'} /> */}
-                </Button>
-                    </p>
+                        </div>
+
+                <div className="flex justify-center my-4">
+                    <Button
+                    className="flex w-fit mt-6 "
+                    color="purple"
+                    size="sm"
+                    >
+                        Add to cart - {props.price}
+
+                    </Button>
+                </div>
                 </ModalBody>
                 <ModalFooter>
+                <div className="flex flex-row items-center">
                     <Button 
                         color="brown"
                         buttonType="link"
@@ -61,13 +66,14 @@ export default function ModalDetails(props) {
 
                     <Button
                         color="lime"
+                        className="ml-14"
                         onClick={(e) => setShowModalCode(false)}
                         ripple="light"
                     >
                         Save Changes
                     </Button>
-                  
-                </ModalFooter>
+                </div>
+            </ModalFooter>
             </Modal>
         </>
     );

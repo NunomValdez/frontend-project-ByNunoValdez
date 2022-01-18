@@ -24,15 +24,15 @@ export default function HomePage() {
                         <div className="flex justify-start text-white p-3 pl-8 m-6">
                             <Login />
                         </div>
-                        <a href="#food-catalog">
-                            <svg xmlns="http://www.w3.org/2000/svg"  className="h-36 w-4/6" fill="none" viewBox="0 0 24 24" stroke="orange">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+                        <a href="#food-catalog" className="hover:animate-bounce">
+                            <svg xmlns="http://www.w3.org/2000/svg"  className="h-36 w-4/6" fill="none" viewBox="0 0 24 24" stroke="lime">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
                             </svg>
                         </a>
                     </div>
                 </section>
-                <section>
-                    <div id="food-catalog">
+                <section  id="food-catalog">
+                    <div>
                         <FoodCatalog />
                     </div>
                     {/* <div>
