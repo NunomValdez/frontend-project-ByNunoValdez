@@ -5,26 +5,25 @@ import Checkbox from "@material-tailwind/react/Checkbox"
 
 
 export default function CheckboxExtra(props) {
-    let {extra, id, handleDishExtras} = props; //extraindo a prop extra e id, das props q vêm do pai modalDetails
+    let {extra, id, handleSelectedDish} = props; //extraindo as props a usar mandadas pelo comp pai
 
-    const [changeCheckbox, setChangeCheckbox] = useState(false);
-    // o estado inicial será false, para q ao clicar fique a true, para ficar checked
+// o estado inicial do state(changeCheckbox) será false, para q ao clicar o setChangeCheckbox o torne true na funcao handleChangeCheckbox
+    const [changeCheckbox, setChangeCheckbox] = useState(false); 
 
     // const { changeCheckbox, setChangeCheckbox } = useContext(AppContext);
 
-// neste ficheiro tenho de passar para o pai os extras escolhidos, para o próprio pai mandar a 
+// neste ficheiro tenho de passar para o pai os extras escolhidos, para q o pai mande a 
 // info à app.js dos pratos selecionados, e dos respectivos extras!
 
-
     const handleChangeCheckbox= (event)=>{
-        console.log(`${event.target.checked} do ${extra}`)
+        console.log(`${event.target.checked} do ${extra}`) 
         setChangeCheckbox(!changeCheckbox)
         // console.log(changeCheckbox) 
     }
 
-    //  const handleExtras=()=>{
-    //     handleDishExtras(id)
-    // }
+     const handleSelected=()=>{
+        handleSelectedDish(id)
+    }
 
     // const handleSelected=(changeCheckbox)=>{
     //        handleSelectedDish(changeCheckbox)
@@ -39,7 +38,7 @@ export default function CheckboxExtra(props) {
             id={`${id}-${extra}`}  //o id é do cartao, e o extra do extra relativo ao id 
             checked={changeCheckbox}
             onChange={ handleChangeCheckbox }
-            // onClick={handleExtras}
+          onClick={handleSelectedDish}
         />
     )
 }

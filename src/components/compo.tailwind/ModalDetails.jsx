@@ -44,7 +44,7 @@ export default function ModalDetails(props) {
                                
                                 props.extras.map((extra,i) =>{ 
                                     // console.log(extra)
-                                    return <Checkbox  key={i} extra={extra} id={props.id}/>
+                                    return <Checkbox handleSelectedDish={props.handleSelectedDish} key={i} extra={extra} id={props.id}/>
                                 })
                             }
                         </div>

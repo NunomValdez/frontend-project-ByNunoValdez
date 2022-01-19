@@ -19,9 +19,9 @@ export default function FoodCard(props) {
         //     setModalOpen(true);
         // }
 
-        // const handleDishExtras=(extra)=>{
-        //     console.log(extra)
-        // }
+        const handleSelectedDish=(extra)=>{
+            console.log(extra)
+        }
 
 
     return (
@@ -47,9 +47,11 @@ export default function FoodCard(props) {
                     extras={props.extras}
                     opened={modalOpen} 
                     id={props.id}
-                    // handleDishExtras={handleDishExtras}
+                    handleSelectedDish={handleSelectedDish}
                     />
             </CardFooter>
         </Card>
     );
 }
+
+//   if (Checkbox.checked === true{ manda po pai } )

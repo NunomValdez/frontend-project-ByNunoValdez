@@ -26,7 +26,7 @@ export default function FoodCards(props) {
                     description = {foodOption.Description}
                     extras={foodOption.Extras}
                     stock={foodOption.stock}
-                    // handleSelectedDish={handleSelectedDish}
+                         handleSelectedDish={handleSelectedDish}
                     key={foodOption.id}
 
                     className="col-auto"
