@@ -16,9 +16,14 @@ export default function CheckboxExtra(props) {
 // info à app.js dos pratos selecionados, e dos respectivos extras!
 
     const handleChangeCheckbox= (event)=>{
-        console.log(`${event.target.checked} do ${extra}`) 
+        // console.log(`${event.target.checked} do ${extra}`) 
         setChangeCheckbox(!changeCheckbox)
         // console.log(changeCheckbox) 
+    }
+
+//______ método para substituir o espaço por underscore, para o ID ser uma string única sem espaços!
+    const parseExtraIngredient = ()=>{
+        return extra.replace(' ', '_');
     }
 
      const handleSelected=()=>{
@@ -35,7 +40,7 @@ export default function CheckboxExtra(props) {
             color="lightGreen"
             text={extra}
             value={extra}
-            id={`${id}-${extra}`}  //o id é do cartao, e o extra do extra relativo ao id 
+            id={`${id}-${parseExtraIngredient()}`}  //o id é do cartao, e o extra do extra relativo ao id 
             checked={changeCheckbox}
             onChange={ handleChangeCheckbox }
           onClick={handleSelectedDish}
