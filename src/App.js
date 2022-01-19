@@ -10,11 +10,13 @@ import {
 } from "react-router-dom"
 
 //o context tem de ser definido aqui, para q os vários states sejam globais...! (?)
+//fazendo createContext, podemos usar a tag ...Provider para providenciar states/props
+// globais aos componentes filhos, e assim passar info de um lado para o outro
 
 // const [state, dispatch] = useReducer(reducer, initialState, init)
 
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -28,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+

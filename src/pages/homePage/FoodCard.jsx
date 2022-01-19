@@ -49,7 +49,7 @@ export default function FoodCard(props) {
             />
 
             <CardBody >
-                <H6 color="lime">{props.name}</H6>
+                <H6 color="teal">{props.name}</H6>
                 <Paragraph color="gray" className="font-bold text-lg">{props.description}</Paragraph>
                 <Paragraph className="text-slate-800 font-semibold">{props.price}</Paragraph>
             </CardBody>

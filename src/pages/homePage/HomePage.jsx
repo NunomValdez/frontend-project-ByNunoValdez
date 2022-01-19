@@ -5,7 +5,7 @@ import Login from '../../components/login/Login';
 import FoodCatalog from './FoodCatalog';
 import Footer from './Footer';
 import ShopButton from '../checkout/ShopButton';
-import PaginationCatalog from '../../components/compo.tailwind/Pagination';
+// import PaginationCatalog from '../../components/compo.tailwind/Pagination';
 
 // pôr nesta página a Store/redux, para que todos os componentes tenham acesso aos respectivos states q precisam
 // ver useContext

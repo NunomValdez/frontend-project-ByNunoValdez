@@ -45,3 +45,7 @@ export default function Checkout(props) {
     </section>
     )
 }
+//Quando o user selecionar os pratos e quantidades dos mesmos para fazer a compra, pode-se usar esse nr
+// de pratos a comprar para se alterar a API, com a quantidade de stock - método PUT da API, no postman!
+// faz-se PUT do elemento a alterar (através do id:  "".../Menu/id" -> clique no PUT), e actualiza-se o nr de stock
+//caso stock ==0, mostrar msg ao user q nao há

@@ -17,7 +17,8 @@ const pageNumbers = [];
 const numberOfPages = Math.ceil(totalItems/itemsPerPage);
 
     for(let i = 1; i <= numberOfPages; ++i ){
-        pageNumbers.push(i); //assim vamos colocando o nr da página dentro do array de páginas
+        pageNumbers.push(i); 
+        //assim vamos colocando o nr da página dentro do array de páginas
     }  
 
     return (

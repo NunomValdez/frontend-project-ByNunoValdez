@@ -22,13 +22,14 @@ export default function FoodCatalog() {
     }, []);
     
     // na API fornecida vamos ter de ver se ha items em stock, se houver os pratos estarão disponiveis para compra, senao
-    //nao se pode comprar e o card deve aparecer indisponivel !
+    //nao se pode comprar e o card deve aparecer indisponivel ! --> a fazer 
     
     console.log(foodItems);
     
+    //Lógica da paginação para apresentar 6 cards por página:
     const indexOfLastItem = currentPage * itemsPerPage; // (qd currentPage =2, itemsPerPage= 2*6)
     const indexOfFirstItem = indexOfLastItem - itemsPerPage; // (o 1º elem da pagina é = ao index do ultimo elem - o nr de elementos por pagina)
-    const currentItems = foodItems.slice(indexOfFirstItem, indexOfLastItem); //delimita os elem q aparecem em cada pagina
+    const currentItems = foodItems.slice(indexOfFirstItem, indexOfLastItem); //delimita os elem q aparecem em cada pagina, consoante o seu index
 
     const numberOfPages = Math.ceil((foodItems.length)/itemsPerPage);
     //como fiz na paginação, desta maneira temos o nr de páginas a serem renderizadas (arredondando por cima)
