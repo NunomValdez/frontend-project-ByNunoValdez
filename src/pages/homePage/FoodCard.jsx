@@ -61,7 +61,8 @@ export default function FoodCard(props) {
                     price={props.price}
                     description = {props.description}
                     extras={props.extras}
-                    opened={modalOpen} />
+                    opened={modalOpen} 
+                    id={props.id}/>
             </CardFooter>
             
         </Card>

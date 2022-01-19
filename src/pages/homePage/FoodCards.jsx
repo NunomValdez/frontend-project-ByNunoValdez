@@ -14,7 +14,7 @@ export default function FoodCards(props) {
                     props.foodOptions.map(
                         (foodOption)=> 
                         <FoodCard
-                        
+                        id={foodOption.id}
                         image={foodOption.image}
                         name={foodOption.name}
                         price={foodOption.price}

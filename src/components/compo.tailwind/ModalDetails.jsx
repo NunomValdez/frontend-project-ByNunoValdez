@@ -35,20 +35,16 @@ export default function ModalDetails(props) {
                     <div className="text-base leading-relaxed text-gray-600 font-light flex">
                     <img src={`/assets/images${props.image}`} alt="product image" className="w-24"/>
                        "{props.description}"
-                        {/* <select name="Extras" id="extras-dish">
-                            {
-                                //props.extras.map((extra)=>{
-                                    <option>ingredient {extra}</option>
-                                })
-                            }
-                        </select> */}
                         </div>
+
                         <div id="dish-extras" className="font-extralight text-sm">
                            <span className="flex text-left mt-2"> Choose some extras:</span>
+                            
                             {
-                                props.extras.map(extra =>{
-                                    //console.log(extra)
-                                    return <Checkbox key={extra} extra={extra}/>
+                               
+                                props.extras.map((extra,i) =>{ 
+                                    // console.log(extra)
+                                    return <Checkbox key={i} extra={extra} id={props.id}/>
                                 })
                             }
                         </div>
