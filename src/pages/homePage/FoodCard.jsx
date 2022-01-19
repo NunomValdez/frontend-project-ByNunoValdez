@@ -1,23 +1,3 @@
-// import React from 'react'
-// import ButtonIcon from '../../components/compo.tailwind/Button';
-
-
-
-// export default function FoodCard(props) {
-    
-//     let {name, username, email, address}=props.food;
-
-//     return (
-//         <>
-//             <article className="flex p-3 flex-col border-safire border-2 ">
-//                 <h2>{name}</h2>
-//                 <p>{username}</p>
-//                 <p>{email}</p>
-//                   <ButtonIcon />
-//             </article>
-//         </>
-//     )
-// }
 
 import {useState} from "react";
 import Card from "@material-tailwind/react/Card";
@@ -29,13 +9,18 @@ import Paragraph from "@material-tailwind/react/Paragraph";
 import Button from "@material-tailwind/react/Button";
 import ModalDetails from "../../components/compo.tailwind/ModalDetails";
 
-export default function FoodCard(props) {
 
+
+export default function FoodCard(props) {
 
     const [modalOpen, setModalOpen] = useState(false);
 
         // const handleClickCard= ()=>{
         //     setModalOpen(true);
+        // }
+
+        // const handleDishExtras=(extra)=>{
+        //     console.log(extra)
         // }
 
 
@@ -47,7 +32,6 @@ export default function FoodCard(props) {
                 alt="Card Image"
                 
             />
-
             <CardBody >
                 <H6 color="teal">{props.name}</H6>
                 <Paragraph color="gray" className="font-bold text-lg">{props.description}</Paragraph>
@@ -62,9 +46,10 @@ export default function FoodCard(props) {
                     description = {props.description}
                     extras={props.extras}
                     opened={modalOpen} 
-                    id={props.id}/>
+                    id={props.id}
+                    // handleDishExtras={handleDishExtras}
+                    />
             </CardFooter>
-            
         </Card>
     );
 }
