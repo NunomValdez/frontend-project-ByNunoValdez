@@ -20,8 +20,8 @@ export default function FoodCard(props) {
         // }
 
         const handleSelectedDish=(extra)=>{
-            console.log(extra)
-        }
+            console.log(extra.target.id)
+        } //info que vem do elem checkbox, neto, com o id do pedido e o nome do pedido
 
 
     return (
