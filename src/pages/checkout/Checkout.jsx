@@ -22,7 +22,20 @@ export default function Checkout(props) {
 //---- q está no pai é que vai fazer o que tem a fazer, consoante a acção q lhe passamos no filho q usa o context.
     
     const { dishes } = useContext(AppContext)
-    console.log(dishes)
+    // console.log(dishes)
+
+    //saber o preço TOTAL DOS PRATOS
+    let totalPrice = 0; 
+    const dishPrice = dishes.map(dish=>{
+        const price = parseInt(dish.price.split(' ')[1].split('$')[0])
+        totalPrice += price
+    })
+        console.log(totalPrice)
+
+        // const numberOfDishes=(dishes)=>{
+        //     setNumberOfDishes(dishes.length)
+        // }
+        
 
     return (
     <section className="mx-auto mt-4 sm:justify-evenly">
@@ -35,19 +48,16 @@ export default function Checkout(props) {
                            id="product-checkout" 
                            className="products flex flex-row border-b border-dashed border-black "
                            key={i}>
-                                <h2 className="text-safire text-lg flex">{`${dish.name} with ${dish.extra} `} </h2>
+                                <h4 className="text-safire text-md flex">{`${dish.name} 
+                                ${dish.extra.length ===0 ? '' : ` with ${dish.extra} ` } `} </h4>
                                 <p>{dish.price}</p>
                             </div>
                         })
                     }
-                    {/* <h2 >{`${dishes.name} with ${dishes.value}`}</h2> */}
-                    {/* <p>Preço do produto</p> */}
                     
-                
-
                 <div className="flex products flex-row border-b border-dashed  border-black">
-                    < h2 className=" text-tangerine text-lg">Dishes</h2>
-                    <p className="text-lime-600 font-extrabold">Price $</p>
+                    < h2 className=" text-tangerine text-md">Orders: {dishes.length}</h2>
+                    <p className="text-lime-600 font-extrabold">Price: {totalPrice}$</p>
                 </div>
                 
             </section>

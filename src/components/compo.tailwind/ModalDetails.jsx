@@ -10,32 +10,30 @@ import { useContext } from "react";
 import { AppContext } from "../../App";
 
 export default function ModalDetails(props) {
-
+//____ mostrar o modal
     const [showModal, setShowModal] = useState(false);
 
     const setShowModalCode =(value)=>{
         setShowModal(value);
     }
+//__________//
+    //usar context definido na app.js
+    const { dishes, setDishes } = useContext(AppContext) 
 
-    const extraArray=[];
-const handleExtras = (extra)=>{
-    extraArray.push(extra);
-}
-    
+    const extraArray=[]; //os extras têm de ser um array, para q o user possa escolher mais q 1
+       
+    const handleExtras = (extra)=>{
+        extraArray.push(extra); 
+    }   //ao clicar no extra, fazer push desse extra pra dentro do array
 
-    const { dishes, setDishes } = useContext(AppContext)
-//____ função passada por props aos filhos para extrair a info dos pratos escolhidos
-const handleSelectedDish =()=>{ 
-    //    console.log(dish.target.id) //id do elemento
-    //    console.log(dish.target.checked) // se estiver checked, foi selecionado e é para ir po carrinho!
-    //    console.log(dish)
+const handleSelectedDish =()=>{  
+//colocar dentro do array o q ja houver de dishes, e adicionar o obj com as propriedades q quero usar 
        setDishes([...dishes, {
            name: props.name,
            price: props.price,
-           extra: extraArray
-       }]);
+           extra: extraArray}
+        ]);
    } 
-   //____ o prato será identificado pelo 1º caractere do ID, e o extra escolhido pelo valor do value! 
 
     return (
         <>

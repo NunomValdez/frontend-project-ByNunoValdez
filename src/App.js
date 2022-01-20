@@ -21,7 +21,11 @@ import {
 
    export default function App() { 
     const [ dishes, setDishes ] = useState([]);
-        console.log(dishes)
+    // const [numberDishes, setNumberOfDishes] = useState(0);
+    
+    //saber a quantidade de pedidos p pôr no botao do carrinho
+    let numberOfOrders = dishes.length; 
+
 //   const dishReducer = (state, action) => {
 //     switch (action.type) {
 //       case 'ADD_DISH':
@@ -35,7 +39,6 @@ import {
 //       default: state;
 //     }
 //  }
-
 // const inicialSelectedDishes = {   //variavel q define os states iniciais
 //  dish1: 0,
 //  dish2 :0,
@@ -47,7 +50,7 @@ import {
 //_____ estão a ser declarados os estados iniciais, e a funcao reducer q orquestra tudo
 
   return (
-  <AppContext.Provider value={{ dishes, setDishes }}>
+  <AppContext.Provider value={{ dishes, setDishes, numberOfOrders }}>
       <BrowserRouter>
         <Routes>
           <>

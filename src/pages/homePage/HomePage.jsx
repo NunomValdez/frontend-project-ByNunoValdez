@@ -1,16 +1,21 @@
 import {useState, useEffect} from 'react'
-import Dropdownn from '../../components/compo.tailwind/Dropdown';
 import './HomePage.css';
 import Login from '../../components/login/Login';
 import FoodCatalog from './FoodCatalog';
 import Footer from './Footer';
 import ShopButton from '../checkout/ShopButton';
+import { useContext } from 'react';
+import { AppContext } from '../../App';
 // import PaginationCatalog from '../../components/compo.tailwind/Pagination';
 
 // pôr nesta página a Store/redux, para que todos os componentes tenham acesso aos respectivos states q precisam
 // ver useContext
 
+
+
 export default function HomePage() {
+    
+    const { numberOfOrders } = useContext(AppContext)
 
     return (
         <>
@@ -40,7 +45,7 @@ export default function HomePage() {
                     </div>*/}
                 </section> 
                 <section className="flex shrink justify-center p-2.5">
-                    <ShopButton nameButton="Go to cart" numberShop={4}/>
+                    <ShopButton nameButton="Go to cart" numberShop={numberOfOrders}/>
                 </section>
                 <section >
                     <Footer />
