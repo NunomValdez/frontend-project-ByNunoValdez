@@ -6,6 +6,8 @@ import ModalFooter from "@material-tailwind/react/ModalFooter";
 import Button from "@material-tailwind/react/Button";
 import ShopButton from "../../pages/checkout/ShopButton";
 import Checkbox from "./Checkbox";
+import { useContext } from "react";
+import { AppContext } from "../../App";
 
 export default function ModalDetails(props) {
 
@@ -14,7 +16,26 @@ export default function ModalDetails(props) {
     const setShowModalCode =(value)=>{
         setShowModal(value);
     }
-     
+
+    const extraArray=[];
+const handleExtras = (extra)=>{
+    extraArray.push(extra);
+}
+    
+
+    const { dishes, setDishes } = useContext(AppContext)
+//____ função passada por props aos filhos para extrair a info dos pratos escolhidos
+const handleSelectedDish =()=>{ 
+    //    console.log(dish.target.id) //id do elemento
+    //    console.log(dish.target.checked) // se estiver checked, foi selecionado e é para ir po carrinho!
+    //    console.log(dish)
+       setDishes([...dishes, {
+           name: props.name,
+           price: props.price,
+           extra: extraArray
+       }]);
+   } 
+   //____ o prato será identificado pelo 1º caractere do ID, e o extra escolhido pelo valor do value! 
 
     return (
         <>
@@ -43,10 +64,11 @@ export default function ModalDetails(props) {
                                 props.extras.map((extra,i) =>{ 
                                     // console.log(extra)
                                     return <Checkbox 
-                                    handleSelectedDish={props.handleSelectedDish} 
+                                    handleExtras={handleExtras} 
                                     key={i} 
                                     extra={extra} 
                                     id={props.id}
+                                    name={props.name}
                                     />
                                 })
                             }
@@ -57,6 +79,7 @@ export default function ModalDetails(props) {
                     className="flex w-fit mt-6 font-light"
                     color="purple"
                     size="sm"
+                    onClick={handleSelectedDish}
                     >
                         Add to cart -  
                          {props.price}

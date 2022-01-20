@@ -5,7 +5,7 @@ import Checkbox from "@material-tailwind/react/Checkbox"
 
 
 export default function CheckboxExtra(props) {
-    let {extra, id, handleSelectedDish} = props; //extraindo as props a usar mandadas pelo comp pai
+    let {extra, id, handleExtras, name} = props; //extraindo as props a usar mandadas pelo comp pai
 
 // o estado inicial do state(changeCheckbox) será false, para q ao clicar o setChangeCheckbox o torne true na funcao handleChangeCheckbox
     const [changeCheckbox, setChangeCheckbox] = useState(false); 
@@ -26,22 +26,19 @@ export default function CheckboxExtra(props) {
         return extra.replace(' ', '_');
     }
 
-     const handleSelected=()=>{
-        handleSelectedDish(id)
-    } //___________ funcao de handle q é executada no componente pai, e q vem buscar ao filho a info 
-    //_______________do id do q o user clicou - passar info dos filhos p pais!
-    // console.log(handleSelected)
-
     return (
         <Checkbox
             // className="p-6"
+            name={name}
             color="lightGreen"
             text={extra}
             value={extra}
             id={`${id}-${parseExtraIngredient()}`}  //o id é do cartao, e o extra do extra relativo ao id 
             checked={changeCheckbox}
             onChange={ handleChangeCheckbox }
-          onClick={handleSelectedDish}
+          onClick={()=>handleExtras(extra)}//___________ funcao de handle q é executada no componente pai, e q vem buscar ao filho a info 
+    //_______________do id do q o user clicou - passar info dos filhos p pais!
+    // console.log(handleSelected)
         />
     )
 }

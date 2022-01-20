@@ -15,15 +15,6 @@ export default function FoodCard(props) {
 
     const [modalOpen, setModalOpen] = useState(false);
 
-        // const handleClickCard= ()=>{
-        //     setModalOpen(true);
-        // }
-
-        // const handleSelectedDish=(event)=>{
-        //     console.log(event.target.id)
-        // } //info que vem do elem checkbox, neto, com o id do pedido e o nome do pedido
-
-
     return (
         <Card className="shadow-md bg-gray-50 max-w-sm min-w-fit">
             <CardImage
@@ -47,7 +38,7 @@ export default function FoodCard(props) {
                     extras={props.extras}
                     opened={modalOpen} 
                     id={props.id}
-                            handleSelectedDish={props.handleSelectedDish}
+                    //  handleSelectedDish={props.handleSelectedDish}
                     />
             </CardFooter>
         </Card>

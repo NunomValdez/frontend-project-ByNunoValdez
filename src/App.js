@@ -9,7 +9,6 @@ import {
   Route,
 } from "react-router-dom"
 
-
 //o context tem de ser definido aqui, para q os vários states sejam globais...! (?)
 //fazendo createContext, podemos usar a tag ...Provider para providenciar states/props
 // globais aos componentes filhos, e assim passar info de um lado para o outro
@@ -18,14 +17,11 @@ import {
 //e os devidos componentes vão usar os states definidos aqui neste App, embora os usem lá dentro de si mesmos 
 //através do useContext --> usar contexto dentro do elemento, contexto esse q é criado no pai de todos!
 
-   export const AppContext = createContext('Nothing to buy');
+   export const AppContext = createContext([]);
 
-   
-   
-   
    export default function App() { 
-   const [ dishes, setDishes ] = useState('')
-
+    const [ dishes, setDishes ] = useState([]);
+        console.log(dishes)
 //   const dishReducer = (state, action) => {
 //     switch (action.type) {
 //       case 'ADD_DISH':
@@ -51,7 +47,7 @@ import {
 //_____ estão a ser declarados os estados iniciais, e a funcao reducer q orquestra tudo
 
   return (
-  <AppContext.Provider value={'x'}>
+  <AppContext.Provider value={{ dishes, setDishes }}>
       <BrowserRouter>
         <Routes>
           <>
