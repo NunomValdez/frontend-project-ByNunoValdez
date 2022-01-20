@@ -18,13 +18,37 @@ import {
 //e os devidos componentes vão usar os states definidos aqui neste App, embora os usem lá dentro de si mesmos 
 //através do useContext --> usar contexto dentro do elemento, contexto esse q é criado no pai de todos!
 
+   export const AppContext = createContext('Nothing to buy');
 
-export const AppContext = createContext();
+   
+   
+   
+   export default function App() { 
+   const [ dishes, setDishes ] = useState('')
 
+//   const dishReducer = (state, action) => {
+//     switch (action.type) {
+//       case 'ADD_DISH':
+//         return {
+//          ...state,
+//}
+//       case 'REMOVE_DISH':
+//         return {
+//         ...state
+//}
+//       default: state;
+//     }
+//  }
 
-export default function App() {
+// const inicialSelectedDishes = {   //variavel q define os states iniciais
+//  dish1: 0,
+//  dish2 :0,
+// }
 
-  // const [changeCheckbox, setChangeCheckbox] = useState(false);
+// const [dish, setDish] = useReducer(dishReducer, inicialSelectedDishes) 
+
+//_____Hook reducer que agrega a funcao dishReducer, e gerencia os states / actions - desta maneira sabe-se onde 
+//_____ estão a ser declarados os estados iniciais, e a funcao reducer q orquestra tudo
 
   return (
   <AppContext.Provider value={'x'}>

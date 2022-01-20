@@ -19,9 +19,9 @@ export default function FoodCard(props) {
         //     setModalOpen(true);
         // }
 
-        const handleSelectedDish=(extra)=>{
-            console.log(extra.target)
-        } //info que vem do elem checkbox, neto, com o id do pedido e o nome do pedido
+        // const handleSelectedDish=(event)=>{
+        //     console.log(event.target.id)
+        // } //info que vem do elem checkbox, neto, com o id do pedido e o nome do pedido
 
 
     return (
@@ -47,7 +47,7 @@ export default function FoodCard(props) {
                     extras={props.extras}
                     opened={modalOpen} 
                     id={props.id}
-                    handleSelectedDish={handleSelectedDish}
+                            handleSelectedDish={props.handleSelectedDish}
                     />
             </CardFooter>
         </Card>

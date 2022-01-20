@@ -4,7 +4,7 @@ import FoodCards from './FoodCards'
 
 
 export default function FoodCatalog() {
-
+//___ estados e setEstados do componente:
     const [foodItems, setfoodItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage]= useState(6);
@@ -34,7 +34,7 @@ export default function FoodCatalog() {
     const numberOfPages = Math.ceil((foodItems.length)/itemsPerPage);
 //_________ como fiz na paginação, desta maneira temos o nr de páginas a serem renderizadas (arredondando por cima)
 
-    //metodo para mudar a página (recebe o nr da página do filho):
+//_____metodo para mudar a página (recebe o nr da página do filho):
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
@@ -52,20 +52,20 @@ export default function FoodCatalog() {
 
     return ( 
     <>
-        <h1 className="row-span-full text-stone-800 text-4xl shadow-sm p-7 bg-slate-50">Food Catalog</h1>
-        <div className="flex justify-center"> 
-            <FoodCards foodOptions={currentItems} /> 
-            {/* o FoodCards vai receber o foodOption como props, e trabalhar o array dentro do cards */}
-        </div>
-        <div>
-            <PaginationCatalog 
-            handleLeftClick={handleLeftClick}
-            handleRightClick={handleRightClick}
-            itemsPerPage={itemsPerPage} 
-            totalItems={foodItems.length}
-            paginate={paginate}
-            currentPage={currentPage}/>
-        </div>
+    <h1 className="row-span-full text-stone-800 text-4xl shadow-sm p-7 bg-slate-50">Food Catalog</h1>
+    <div className="flex justify-center"> 
+        <FoodCards foodOptions={currentItems} /> 
+        {/* o FoodCards vai receber o foodOption como props, e trabalhar o array dentro do cards */}
+    </div>
+    <div>
+        <PaginationCatalog 
+        handleLeftClick={handleLeftClick}
+        handleRightClick={handleRightClick}
+        itemsPerPage={itemsPerPage} 
+        totalItems={foodItems.length}
+        paginate={paginate}
+        currentPage={currentPage}/>
+    </div>
     </>
     )         
 }

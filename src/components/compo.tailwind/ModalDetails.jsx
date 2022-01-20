@@ -39,16 +39,19 @@ export default function ModalDetails(props) {
 
                         <div id="dish-extras" className="font-extralight text-sm">
                            <span className="flex text-left mt-2"> Choose some extras:</span>
-                            
                             {
-                               
                                 props.extras.map((extra,i) =>{ 
                                     // console.log(extra)
-                                    return <Checkbox handleSelectedDish={props.handleSelectedDish} key={i} extra={extra} id={props.id}/>
+                                    return <Checkbox 
+                                    handleSelectedDish={props.handleSelectedDish} 
+                                    key={i} 
+                                    extra={extra} 
+                                    id={props.id}
+                                    />
                                 })
                             }
                         </div>
-
+                        
                 <div className="flex justify-center my-4">
                     <Button
                     className="flex w-fit mt-6 font-light"

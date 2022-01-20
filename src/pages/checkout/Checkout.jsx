@@ -4,17 +4,21 @@ import './checkout.css';
 import ShopButton from './ShopButton';
 import Form from './Form';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 
 export default function Checkout(props) {
     const navigate = useNavigate();
 
     // nesta página terá de vir, por props, um array de pratos selecionados pelo user - STORE/REDUX
-
     // tb tem de vir  a quantidade de pratos a comprar
 
     // const [counter, setCounter] = useState('')
 // este counter vai ter de ser usado num useEffect? 
 // pq quero q dependa da selecao do utilizador
+
+   // const selectedDishes = useContext(AppContext)  
+//---- dps aqui usamos apenas o nome da acção, e o context
+//---- q está no pai é que vai fazer o que tem a fazer, consoante a acção q lhe passamos no filho q usa o context.
     
 
     return (

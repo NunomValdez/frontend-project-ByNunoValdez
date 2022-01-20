@@ -12,8 +12,8 @@ export default function CheckboxExtra(props) {
 
     // const { changeCheckbox, setChangeCheckbox } = useContext(AppContext);
 
-// neste ficheiro tenho de passar para o pai os extras escolhidos, para q o pai mande a 
-// info à app.js dos pratos selecionados, e dos respectivos extras!
+//----- neste ficheiro tenho de passar para o pai os extras escolhidos, para q o pai mande a 
+// ---- info à app.js dos pratos selecionados, e dos respectivos extras!
 
     const handleChangeCheckbox= (event)=>{
         // console.log(`${event.target.checked} do ${extra}`) 
@@ -28,11 +28,9 @@ export default function CheckboxExtra(props) {
 
      const handleSelected=()=>{
         handleSelectedDish(id)
-    }
-
-    // const handleSelected=(changeCheckbox)=>{
-    //        handleSelectedDish(changeCheckbox)
-    // }
+    } //___________ funcao de handle q é executada no componente pai, e q vem buscar ao filho a info 
+    //_______________do id do q o user clicou - passar info dos filhos p pais!
+    // console.log(handleSelected)
 
     return (
         <Checkbox
