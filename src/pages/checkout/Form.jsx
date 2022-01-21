@@ -23,7 +23,7 @@ export default function Form() {
     //   e.preventDefault();
     setFirstName( e.target.value);
   }
-  console.log(firstName)
+//   console.log(firstName)
 //__Email
 const emailChangeHandler=(e)=>{
     // e.preventDefault();

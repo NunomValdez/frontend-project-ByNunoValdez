@@ -29,7 +29,7 @@ import {
     
     //saber a quantidade de pedidos p pôr no botao do carrinho
     let numberOfOrders = dishes.length; 
-
+    
 //_____Hook reducer que agrega a funcao dishReducer, e gerencia os states / actions - desta maneira sabe-se onde 
 //_____ estão a ser declarados os estados iniciais, e a funcao reducer q orquestra tudo
 
