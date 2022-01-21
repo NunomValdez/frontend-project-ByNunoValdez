@@ -21,7 +21,7 @@ export default function Checkout(props) {
 //---- dps aqui usamos apenas o nome da acção, e o context
 //---- q está no pai é que vai fazer o que tem a fazer, consoante a acção q lhe passamos no filho q usa o context.
     
-    const { dishes } = useContext(AppContext)
+    const { dishes, setDishes } = useContext(AppContext)
     // console.log(dishes)
 
     //saber o preço TOTAL DOS PRATOS
@@ -30,12 +30,15 @@ export default function Checkout(props) {
         const price = parseInt(dish.price.split(' ')[1].split('$')[0])
         totalPrice += price
     })
-        console.log(totalPrice)
+        // console.log(totalPrice)
 
         // const numberOfDishes=(dishes)=>{
         //     setNumberOfDishes(dishes.length)
         // }
-        
+const handleDeleteDish=(id)=>{
+    setDishes(dishes.filter(dish=> dish.id!==id))
+}
+  
 
     return (
     <section className="checkout mx-auto mt-4 sm:justify-evenly">
@@ -46,16 +49,22 @@ export default function Checkout(props) {
                         dishes.map((dish,i)=>{ 
                            return <div 
                            id="product-checkout" 
-                           className="products flex flex-row border-b border-dashed border-black "
+                           className="products flex flex-row border-b border-dashed border-slate-400 "
                            key={i}>
+                            <div className="flex">
+                              <span className="mr-3 text-red-400 active:text-red-700 cursor-pointer" id="trash" onClick={()=>handleDeleteDish(dish.id)}>
+                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                        </span>
                                 <h4 className="text-safire text-md flex">{`${dish.name} 
-                                ${dish.extra.length ===0 ? '' : ` with ${dish.extra} ` } `} </h4>
+                                ${dish.extra.length ===0 ? '' : ` with ${dish.extra} ` } `} </h4> 
+                            </div>
                                 <p>{dish.price}</p> 
                             </div>
                         })
-                    }
-                    
-                <div className="flex products flex-row border-b border-dashed  border-black">
+                    } 
+                <div className="flex products flex-row border-b border-dashed  border-slate-400">
                     < h2 className=" text-tangerine text-md">Orders: {dishes.length>=2 ? `${dishes.length} dishes`: `${dishes.length} dish`}</h2>
                     {/* se o user escolher mais que 1 prato, aparecerá no plural, se escolher 1 ou 0 pratos, aparecerá singular */}
                     <p className="text-lime-600 font-extrabold">Price: {totalPrice}$</p>
