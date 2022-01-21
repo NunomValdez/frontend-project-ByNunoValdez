@@ -34,6 +34,7 @@ const handleSelectedDish =()=>{
            price: props.price,
            extra: extraArray,
            id: props.id,
+           image: props.image,
            quantity: 1
             }
         ]);
