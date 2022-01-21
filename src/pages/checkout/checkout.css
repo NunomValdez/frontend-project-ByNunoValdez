@@ -1,10 +1,27 @@
-body{
-    background-color: rgb(245, 243, 243);
-    width: 85vw;
+.checkout{
+    background-color: rgba(235, 230, 230, 0.5);
+    /* background-image: url(../../../public/assets/images/240_F_113636348_FPQO3sUu2ZA3HR9zOzM4lnSiWEdsoqwu.jpeg); */
+    background: linear-gradient(rgba(241, 231, 245, 0.9), rgba(231, 231, 231, 0.849)), url(../../../public/assets/images/1000_F_446049177_S5BAXHbNxnpXqpmyeBe4QBzzhZoODaar.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    position: relative;
+    width: 90vw;
     text-align: center;
-    margin: auto;}
-h1{
+    margin: auto;
+    padding: 2vh 1vw 25vh 1vw;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px rgba(128, 128, 128, 0.24);
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+
+}
+
+.titleCheckout{
     font-family: sans-serif;
+    color: rgb(148, 69, 4)
 }
 
 .products{

@@ -31,6 +31,7 @@ export default function FoodCatalog() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage; // (o 1º elem da pagina é = ao index do ultimo elem - o nr de elementos por pagina)
     const currentItems = foodItems.slice(indexOfFirstItem, indexOfLastItem); //delimita os elem q aparecem em cada pagina, consoante o seu index
 
+
     const numberOfPages = Math.ceil((foodItems.length)/itemsPerPage);
 //_________ como fiz na paginação, desta maneira temos o nr de páginas a serem renderizadas (arredondando por cima)
 

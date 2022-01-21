@@ -46,11 +46,4 @@
     text-align: center;
 }  */
 
-.bg-hero {
-    background-image: url('/public/irene-kredenets-AWMWcR3hQUg-unsplash.jpg');
-    background-position: center;
-    /* background-repeat: none; */
-    background-size: cover;
-    opacity: 0.5;
-    height: 80vh;
-}
+

@@ -38,10 +38,10 @@ export default function Checkout(props) {
         
 
     return (
-    <section className="mx-auto mt-4 sm:justify-evenly">
+    <section className="checkout mx-auto mt-4 sm:justify-evenly">
             <section className="flex flex-col w-auto justify-between "> 
                         
-                <h1 className="text-4xl p-2">Shopping Cart</h1>
+                <h1 className="text-4xl p-2 titleCheckout">Shopping Cart</h1>
                     {
                         dishes.map((dish,i)=>{ 
                            return <div 
@@ -50,13 +50,14 @@ export default function Checkout(props) {
                            key={i}>
                                 <h4 className="text-safire text-md flex">{`${dish.name} 
                                 ${dish.extra.length ===0 ? '' : ` with ${dish.extra} ` } `} </h4>
-                                <p>{dish.price}</p>
+                                <p>{dish.price}</p> 
                             </div>
                         })
                     }
                     
                 <div className="flex products flex-row border-b border-dashed  border-black">
-                    < h2 className=" text-tangerine text-md">Orders: {dishes.length}</h2>
+                    < h2 className=" text-tangerine text-md">Orders: {dishes.length>=2 ? `${dishes.length} dishes`: `${dishes.length} dish`}</h2>
+                    {/* se o user escolher mais que 1 prato, aparecerá no plural, se escolher 1 ou 0 pratos, aparecerá singular */}
                     <p className="text-lime-600 font-extrabold">Price: {totalPrice}$</p>
                 </div>
                 

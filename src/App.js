@@ -22,35 +22,19 @@ import {
    export default function App() { 
     const [ dishes, setDishes ] = useState([]);
     // const [numberDishes, setNumberOfDishes] = useState(0);
+
+    //Usar o nome de Utilizador que o user colocou na landingPage, para o levar para o formulário:
+    const [userName, setUserName] = useState('');
+    console.log(userName);
     
     //saber a quantidade de pedidos p pôr no botao do carrinho
     let numberOfOrders = dishes.length; 
-
-//   const dishReducer = (state, action) => {
-//     switch (action.type) {
-//       case 'ADD_DISH':
-//         return {
-//          ...state,
-//}
-//       case 'REMOVE_DISH':
-//         return {
-//         ...state
-//}
-//       default: state;
-//     }
-//  }
-// const inicialSelectedDishes = {   //variavel q define os states iniciais
-//  dish1: 0,
-//  dish2 :0,
-// }
-
-// const [dish, setDish] = useReducer(dishReducer, inicialSelectedDishes) 
 
 //_____Hook reducer que agrega a funcao dishReducer, e gerencia os states / actions - desta maneira sabe-se onde 
 //_____ estão a ser declarados os estados iniciais, e a funcao reducer q orquestra tudo
 
   return (
-  <AppContext.Provider value={{ dishes, setDishes, numberOfOrders }}>
+  <AppContext.Provider value={{ dishes, setDishes, numberOfOrders, userName, setUserName }}>
       <BrowserRouter>
         <Routes>
           <>

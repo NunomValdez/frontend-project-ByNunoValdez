@@ -4,7 +4,6 @@ import ModalHeader from "@material-tailwind/react/ModalHeader";
 import ModalBody from "@material-tailwind/react/ModalBody";
 import ModalFooter from "@material-tailwind/react/ModalFooter";
 import Button from "@material-tailwind/react/Button";
-import ShopButton from "../../pages/checkout/ShopButton";
 import Checkbox from "./Checkbox";
 import { useContext } from "react";
 import { AppContext } from "../../App";
@@ -28,10 +27,13 @@ export default function ModalDetails(props) {
 
 const handleSelectedDish =()=>{  
 //colocar dentro do array o q ja houver de dishes, e adicionar o obj com as propriedades q quero usar 
-       setDishes([...dishes, {
+       setDishes(
+           [...dishes, 
+            {
            name: props.name,
            price: props.price,
-           extra: extraArray}
+           extra: extraArray
+            }
         ]);
    } 
 

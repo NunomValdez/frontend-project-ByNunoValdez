@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { AppContext } from '../../App';
+import { useContext } from 'react';
 
-// const emailReducer =(state, action)=>{  //criado fora do componente pq n precisa de info gerada por ele
-//         return {value:'', isValid:false}
-// };
 
 export default function Form() {
+
+    const { userName, setUserName }= useContext(AppContext);
 
     //__ Definir os vários states dos Inputs de formulário:
     const [firstName, setFirstName]= useState('');
@@ -20,14 +21,13 @@ export default function Form() {
 //__Name
   const handleChangeName = (e) => {
     //   e.preventDefault();
-    setFirstName(console.log(e.target.value));
+    setFirstName( e.target.value);
   }
-  
-
+  console.log(firstName)
 //__Email
 const emailChangeHandler=(e)=>{
     // e.preventDefault();
-    setEnteredEmail(console.log(e.target.value));
+    setEnteredEmail(e.target.value);
     // setFormIsValid(
     //     e.target.value.includes('@') && enteredEmail.trim().length>6
     // );
@@ -35,21 +35,17 @@ const emailChangeHandler=(e)=>{
 //__Password
 const passwordChangeHandler=(e)=>{
     // e.preventDefault();
-    setEnteredPassword(console.log(e.target.value));
+    setEnteredPassword(e.target.value);
 }
 //__ Address
 const handleEnteredAddress=(e)=>{
     // e.preventDefault();
-    setEnteredAddress(console.log(e.target.value));
+    setEnteredAddress(e.target.value);
     }
 
-    const handleForm=(e)=>{
-        console.log(console.log(e.target.value));
-    }
-    
     const handleFormSubmit= (e) =>{
         e.preventDefault()
-        console.log(console.log(e.target.value));
+        console.log(e.target.value)
     }
 
   //   const [emailState, dispatchEmail] = useReducer(emailReducer, {value:'', isValid: false});
@@ -60,7 +56,8 @@ return (
         <div>
             <input type="text" 
             onChange={handleChangeName} 
-            placeholder="Type your name" 
+            placeholder={userName.length>0? `${userName}` : 'Username'}
+            value={firstName}
             id="first-name" 
             className="bg-zinc-100 border border-b border-slate-500 mt-4 p-2 " />
         </div>
@@ -89,13 +86,15 @@ return (
             id="address" 
             className="bg-zinc-100 border border-b border-slate-500 mt-2 p-2"/>
         </div>
-    </form>
+   
     <button 
-        typeof="submit"
+        type="submit"
         onClick={handleFormSubmit}
-        className="bg-safire text-white p-2 w-fit rounded-2xl m-2"
+        className="bg-safire text-white p-2 w-fit rounded-2xl mx-auto mt-4"
      >
          Submit</button> 
+     
+    </form>
     </>
 )
 }
