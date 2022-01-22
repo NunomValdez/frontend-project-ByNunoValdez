@@ -3,6 +3,7 @@ import React from 'react';
 import './checkout.css';
 import ShopButton from './ShopButton';
 import Form from './Form';
+import CardCheckout from './CardCheckout';
 import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AppContext } from '../../App';
@@ -34,7 +35,8 @@ let getPriceValue =(dolarPrice)=>{
 
 // Apagar um prato do carrinho:
 const handleDeleteDish=(id)=>{
-    setDishes(dishes.filter(dish=> dish.id!==id)) //retorna os pratos que tiverem o id DIFERENTE
+    setDishes(dishes.filter(dish=> dish.id!==id) ) //retorna os pratos que tiverem o id DIFERENTE
+
 }
 
 //Para termos as quantidades de cada pratos seleccionados:
@@ -54,40 +56,18 @@ const handleDecrement=(dish, id)=>{
         <section className="flex flex-col w-auto justify-between ">            
             <h1 className="text-4xl p-2 titleCheckout">Shopping Cart</h1>
                 {
-                dishes.map((dish,i)=>{ 
-                    return <div 
-                    id="product-checkout" 
-                    className="products flex flex-row border-b border-dashed border-slate-400 "
-                    key={i}>
-                    <div className="flex">
-                        <img className="h-14 w-16 mr-3" src={`../assets/images${dish.image}`}/>
-                        <span id="trash" className="mr-2 self-center text-red-400 active:text-red-700 cursor-pointer"  onClick={()=>handleDeleteDish(dish.id)}>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                            </svg>
-                        </span>
-                        <div id="dishName-container" className="flex flex-col">
-                        <h4 className="text-safire text-md flex">{`${dish.name} 
-                            ${dish.extra.length ===0 ? '' : ` with ${dish.extra} ` } `} </h4> 
-                        <div id="buttons-container" className="flex ml-5">
-                            <span id="minusSign">
-                                <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>handleDecrement(dish, dish.id)} className="h-4 w-4 ml-1 cursor-pointer text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </span>
-                            <span id="plusSign" className="ml-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" id="plus-sign" onClick={()=>handlePlus(dish)} className="h-4 w-4 cursor-pointer text-lime-600 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </span>
-                        </div>
-                        </div>
-                        <span className="ml-3">{(dish.quantity)}</span>
-                    </div>
-                            
-                            <p>{`Price: ${getPriceValue(dish.price)*dish.quantity}`}</p> 
-                        </div>
-                    })
+                dishes.map((dish,i)=>
+                 <CardCheckout
+                    id="checkout-card"
+                    key={i}
+                    className="h-12"
+                    dish={dish} 
+                    i={i} 
+                    handleDecrement={handleDecrement} 
+                    handlePlus={handlePlus} 
+                    getPriceValue={getPriceValue}
+                    handleDeleteDish={handleDeleteDish}/>
+                    )
                 } 
             <div className="flex products flex-row border-b border-dashed  border-slate-400">
                 < h2 className=" text-tangerine text-md">Orders: {dishes.length>=2 ? `${dishes.length} dishes`: `${dishes.length} dish`}</h2>
@@ -96,11 +76,11 @@ const handleDecrement=(dish, id)=>{
             </div>
             
         </section>
-        <div className="my-14 w-4/5 mx-auto">
+        {/* <div className="my-14 w-4/5 mx-auto">
             <Form />
-        </div>
+        </div> */}
             <section className="flex justify-evenly mt-8">
-            <Button onClick={()=>navigate('/')}>Home</Button>
+            <Button className="rounded-2xl" onClick={()=>navigate('/')}>Home</Button>
             <ShopButton nameButton="Order"/>
         </section>
     </section>

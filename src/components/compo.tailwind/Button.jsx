@@ -5,7 +5,7 @@ import Icon from "@material-tailwind/react/Icon";
 export default function ButtonIcon() {
     return (
         <Button
-            color="lightBlue"
+            color="blueGray"
             buttonType="outline"
             size="regular"
             rounded={true}
