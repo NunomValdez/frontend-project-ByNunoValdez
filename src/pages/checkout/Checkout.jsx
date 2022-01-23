@@ -14,7 +14,7 @@ export default function Checkout(props) {
 // nesta página terá de vir, por props, um array de pratos selecionados pelo user - STORE/REDUX
 // tb tem de vir  a quantidade de pratos a comprar
 
-const [counter, setCounter] = useState(1)
+    const [counter, setCounter] = useState(1)
 
 //---- dps aqui usamos apenas o nome da acção, e o context
 //---- q está no pai é que vai fazer o que tem a fazer, consoante a acção q lhe passamos no filho q usa o context.
@@ -23,9 +23,9 @@ const [counter, setCounter] = useState(1)
     // console.log(dishes)
 
     //função que retira o valor do preço de um prato selecionado
-let getPriceValue =(dolarPrice)=>{
+    let getPriceValue =(dolarPrice)=>{
   return  parseInt(dolarPrice.split(' ')[1].split('$')[0])
-}
+    }
 
     //saber o preço TOTAL dos pratos
     let totalPrice = 0; 
@@ -34,8 +34,10 @@ let getPriceValue =(dolarPrice)=>{
     })
 
 // Apagar um prato do carrinho:
-const handleDeleteDish=(id)=>{
-    setDishes(dishes.filter(dish=> dish.id!==id) ) //retorna os pratos que tiverem o id DIFERENTE
+const handleDeleteDish=(i)=>{
+    const newDishes = [...dishes]
+        newDishes.splice(i, 1)
+        setDishes(newDishes) //retorna os pratos que tiverem o id DIFERENTE
 
 }
 
@@ -43,11 +45,13 @@ const handleDeleteDish=(id)=>{
 const handlePlus=(dish)=>{
     setCounter(dish.quantity +=1)
     }
-const handleDecrement=(dish, id)=>{
-    if(dish.quantity>0){
+const handleDecrement=(dish, i)=>{
+    if(dish.quantity>1){
         setCounter(dish.quantity -= 1)
     }else{
-        setDishes(dishes.filter(dish=> dish.id!==id))
+        const newDishes = [...dishes]
+        newDishes.splice(i, 1)
+        setDishes(newDishes)
     }
 }
 
@@ -58,7 +62,7 @@ const handleDecrement=(dish, id)=>{
                 {
                 dishes.map((dish,i)=>
                  <CardCheckout
-                    id="checkout-card"
+                    id={`${i}-${dish.id}cardCheckoutId`}
                     key={i}
                     className="h-12"
                     dish={dish} 

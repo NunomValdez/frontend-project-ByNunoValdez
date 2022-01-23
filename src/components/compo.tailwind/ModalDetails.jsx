@@ -22,7 +22,9 @@ export default function ModalDetails(props) {
     const extraArray=[]; //os extras têm de ser um array, para q o user possa escolher mais q 1
        
     const handleExtras = (extra)=>{
-        extraArray.push(extra); 
+       if(!extraArray.includes(extra)) {
+            extraArray.push(extra)
+        }; 
     }   //ao clicar no extra, fazer push desse extra pra dentro do array
 
 const handleSelectedDish =()=>{  
