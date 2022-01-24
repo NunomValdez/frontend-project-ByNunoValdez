@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function CardCheckout({dish, id, i, handleDeleteDish, handleDecrement, handlePlus, getPriceValue}) {
 
-
     return (
         <>
             <div id={id} className="products flex flex-row border border-dashed border-slate-50 bg-white bg-opacity-40 shadow-md rounded-xl overflow-hidden p-2 py-4">
@@ -15,7 +14,8 @@ export default function CardCheckout({dish, id, i, handleDeleteDish, handleDecre
                     <img className="h-14 w-16 mr-3" src={`../assets/images${dish.image}`}/>
                     <div className="flex flex-col">
                     <h4 className="text-safire text-md flex">{`${dish.name} 
-                        ${dish.extra.length ===0 ? '' : ` with ${dish.extra} ` } `} </h4> 
+                        ${dish.extra.length ===0 ? '' : ` with ${dish.extra} ` } `}
+                        </h4> 
                     <div className="flex ml-5">
                         <span id="minusSign">
                             <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>handleDecrement(dish, i)} className="h-4 w-4 ml-1 cursor-pointer  text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">

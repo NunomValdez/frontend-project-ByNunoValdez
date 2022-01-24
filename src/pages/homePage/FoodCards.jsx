@@ -15,7 +15,7 @@ export default function FoodCards(props) {
 //        setDishes(dish.target);
 //    } 
 //    //____ o prato será identificado pelo 1º caractere do ID, e o extra escolhido pelo valor do value! 
-
+console.log(props.foodOptions)
 
     return (
     <>

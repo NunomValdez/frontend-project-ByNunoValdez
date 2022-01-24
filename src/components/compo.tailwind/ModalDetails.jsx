@@ -17,24 +17,32 @@ export default function ModalDetails(props) {
     }
 //__________//
     //usar context definido na app.js
-    const { dishes, setDishes } = useContext(AppContext) 
+    const { dishes, setDishes } = useContext(AppContext);
 
-    const extraArray=[]; //os extras têm de ser um array, para q o user possa escolher mais q 1
        
-    const handleExtras = (extra)=>{
-       if(!extraArray.includes(extra)) {
+// acrescentar o extra APENAS se o target=checked e o extra n existir já no array! se existir, 
+//fazer o splice do extra (extra é o indice neste caso, e 1 para o remover apenas a si mm)
+    const handleExtras = (event, extra)=>{ 
+        if(!extraArray.includes(extra)&&(event.target.checked)){
             extraArray.push(extra)
-        }; 
-    }   //ao clicar no extra, fazer push desse extra pra dentro do array
+        }else{
+            extraArray.splice(extra,1)
+        }
+        console.log(extraArray); 
+    }  
+    
+    
+    const extraArray=[]; //os extras têm de ser um array, para q o user possa escolher mais q 1
 
-const handleSelectedDish =()=>{  
-//colocar dentro do array o q ja houver de dishes, e adicionar o obj com as propriedades q quero usar 
+    const handleSelectedDish =()=>{  
+    //colocar dentro do array o q ja houver de dishes, e adicionar o obj com as propriedades q quero usar 
        setDishes(
            [...dishes, 
             {
            name: props.name,
            price: props.price,
            extra: extraArray,
+           stock: props.stock,
            id: props.id,
            image: props.image,
            quantity: 1
@@ -59,7 +67,7 @@ const handleSelectedDish =()=>{
                 </ModalHeader>
                 <ModalBody >
                     <div className="text-base leading-relaxed text-gray-600 font-light flex">
-                    <img src={`/assets/images${props.image}`} alt="product image" className="w-24"/>
+                    <img src={`/assets/images${props.image}`} alt={props.name} className="w-24"/>
                        "{props.description}"
                         </div>
 
@@ -90,6 +98,7 @@ const handleSelectedDish =()=>{
                          {props.price}
 
                     </Button>
+                    <span className="text-xs text-slate-400">Stock: {props.stock}</span>
                 </div>
                 </ModalBody>
                 <ModalFooter>

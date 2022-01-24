@@ -1,12 +1,8 @@
 import React from 'react';
 import Button from '@material-tailwind/react/Button';
-import { useNavigate } from 'react-router-dom';
 
-
-// recebe por props do pai, a quantidade de produtos a comprar pelo user para renderizar o nr de items à dta no botao
 
 export default function ShopButton(props) {
-    const navigate = useNavigate();
     return (
         <Button
             color="blueGray"
@@ -16,7 +12,7 @@ export default function ShopButton(props) {
             block={false}
             iconOnly={false}
             ripple="light"
-            onClick={()=>navigate('/checkout')}
+            onClick={props.onClick}
         >
             <span id="cart-image">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -24,10 +20,8 @@ export default function ShopButton(props) {
                 </svg>
             </span>
             {props.nameButton}
-
-            <span className="font-bold text-lg p-0.5 m-0.5 rounded-full bg-gradient-to-r from-lime-400 to-green">{props.numberShop}</span>
+            <span className="font-bold text-lg p-0.5 m-0.5 rounded-full bg-gradient-to-r from-lime-200 to-green">{props.numberShop}</span>
         </Button>
     )
 }
 
-//O span do botao tem de ter a quantidade de produtos a comprar, de forma dinamica {counter}, p.ex

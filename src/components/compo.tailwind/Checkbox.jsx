@@ -16,9 +16,7 @@ export default function CheckboxExtra(props) {
 // ---- info à app.js dos pratos selecionados, e dos respectivos extras!
 
     const handleChangeCheckbox= (event)=>{
-        // console.log(`${event.target.checked} do ${extra}`) 
-        setChangeCheckbox(!changeCheckbox)
-        // console.log(changeCheckbox) 
+            setChangeCheckbox(!changeCheckbox)
     }
 
 //______ método para substituir o espaço por underscore, para o ID ser uma string única sem espaços!
@@ -36,7 +34,7 @@ export default function CheckboxExtra(props) {
             id={`${id}-${parseExtraIngredient()}`}  //o id é do cartao, e o extra do extra relativo ao id 
             checked={changeCheckbox}
             onChange={ handleChangeCheckbox }
-          onClick={()=>handleExtras(extra)}//___________ funcao de handle q é executada no componente pai, e q vem buscar ao filho a info 
+          onClick={(event)=>handleExtras(event,extra)}//___________ funcao de handle q é executada no componente pai, e q vem buscar ao filho a info 
     //_______________do id do q o user clicou - passar info dos filhos p pais!
     // console.log(handleSelected)
         />

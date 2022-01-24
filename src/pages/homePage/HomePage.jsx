@@ -6,6 +6,9 @@ import Footer from './Footer';
 import ShopButton from '../checkout/ShopButton';
 import { useContext } from 'react';
 import { AppContext } from '../../App';
+import { useNavigate } from 'react-router-dom';
+
+
 // import PaginationCatalog from '../../components/compo.tailwind/Pagination';
 
 // pôr nesta página a Store/redux, para que todos os componentes tenham acesso aos respectivos states q precisam
@@ -14,7 +17,7 @@ import { AppContext } from '../../App';
 
 
 export default function HomePage() {
-    
+    const navigate = useNavigate();
     const { numberOfOrders } = useContext(AppContext)
 
     return (
@@ -45,7 +48,10 @@ export default function HomePage() {
                     </div>*/}
                 </section> 
                 <section className="flex shrink justify-center p-2.5">
-                    <ShopButton nameButton="Go to cart" numberShop={numberOfOrders}/>
+                    <ShopButton 
+                    onClick={()=>navigate('/checkout')} 
+                    nameButton="Go to cart" 
+                    numberShop={numberOfOrders}/>
                 </section>
                 <section >
                     <Footer />

@@ -29,6 +29,7 @@ export default function FoodCard(props) {
 
             <CardFooter>
                     <ModalDetails 
+                    stock={props.stock}
                     image={props.image}
                     name={props.name}  
                     price={props.price}
