@@ -7,12 +7,15 @@ import CardFooter from "@material-tailwind/react/CardFooter";
 import H6 from "@material-tailwind/react/Heading6";
 import Paragraph from "@material-tailwind/react/Paragraph";
 import ModalDetails from "../../components/compo.tailwind/ModalDetails";
-
-
+import { useContext } from "react";
+import { AppContext } from "../../App";
 
 export default function FoodCard(props) {
 
     const [modalOpen, setModalOpen] = useState(false);
+    // const { setExistingStock }= useContext(AppContext);
+
+    // setExistingStock(props.stock)
 
     return (
         <Card className="shadow-md bg-gray-100 max-w-sm min-w-fit">

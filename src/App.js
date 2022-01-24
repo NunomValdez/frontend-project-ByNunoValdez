@@ -21,8 +21,10 @@ import {
 
    export default function App() { 
     const [ dishes, setDishes ] = useState([]);
-    // const [numberDishes, setNumberOfDishes] = useState(0);
 
+    // const [existingStock, setExistingStock]=useState(0);
+
+console.log(dishes)
     //Usar o nome de Utilizador que o user colocou na landingPage, para o levar para o formulário:
     const [userName, setUserName] = useState('');
     console.log(userName);

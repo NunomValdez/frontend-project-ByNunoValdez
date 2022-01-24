@@ -13,9 +13,9 @@ export default function FoodCards(props) {
 //     //    console.log(dish.target.checked) // se estiver checked, foi selecionado e é para ir po carrinho!
 //     //    console.log(dish)
 //        setDishes(dish.target);
-//    } 
+//    }  
 //    //____ o prato será identificado pelo 1º caractere do ID, e o extra escolhido pelo valor do value! 
-console.log(props.foodOptions)
+// console.log(props.foodOptions)
 
     return (
     <>

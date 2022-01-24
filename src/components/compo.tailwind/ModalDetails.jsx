@@ -11,6 +11,8 @@ import { AppContext } from "../../App";
 export default function ModalDetails(props) {
 //____ mostrar o modal
     const [showModal, setShowModal] = useState(false);
+    const [existingStock, setExistingStock]= useState(props.stock);
+
 
     const setShowModalCode =(value)=>{
         setShowModal(value);
@@ -18,7 +20,6 @@ export default function ModalDetails(props) {
 //__________//
     //usar context definido na app.js
     const { dishes, setDishes } = useContext(AppContext);
-
        
 // acrescentar o extra APENAS se o target=checked e o extra n existir já no array! se existir, 
 //fazer o splice do extra (extra é o indice neste caso, e 1 para o remover apenas a si mm)
@@ -31,12 +32,12 @@ export default function ModalDetails(props) {
         console.log(extraArray); 
     }  
     
-    
     const extraArray=[]; //os extras têm de ser um array, para q o user possa escolher mais q 1
 
     const handleSelectedDish =()=>{  
     //colocar dentro do array o q ja houver de dishes, e adicionar o obj com as propriedades q quero usar 
-       setDishes(
+    if(existingStock>0){
+        setDishes(
            [...dishes, 
             {
            name: props.name,
@@ -47,13 +48,17 @@ export default function ModalDetails(props) {
            image: props.image,
            quantity: 1
             }
-        ]);
+        ])
+        setExistingStock(existingStock-1)
+    }
    } 
+console.log(existingStock)
 
     return (
         <>
             <Button
-                color="lime"
+                color={existingStock<=0 ? "gray": "lime"}
+                disabled={existingStock<=0}
                 type="button"
                 onClick={(e) => setShowModalCode(true)}
                 ripple="light"
@@ -82,6 +87,7 @@ export default function ModalDetails(props) {
                                     extra={extra} 
                                     id={props.id}
                                     name={props.name}
+                                    stock={props.stock}
                                     />
                                 })
                             }
@@ -90,7 +96,7 @@ export default function ModalDetails(props) {
                 <div className="flex justify-center my-4">
                     <Button
                     className="flex w-fit mt-6 font-light"
-                    color="purple"
+                    color={existingStock<=0? "gray" : "purple"}
                     size="sm"
                     onClick={handleSelectedDish}
                     >
@@ -98,7 +104,7 @@ export default function ModalDetails(props) {
                          {props.price}
 
                     </Button>
-                    <span className="text-xs text-slate-400">Stock: {props.stock}</span>
+                    <span className="text-xs text-slate-400" >Stock: {existingStock}</span>
                 </div>
                 </ModalBody>
                 <ModalFooter>
