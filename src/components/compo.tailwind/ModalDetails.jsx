@@ -11,7 +11,7 @@ import { AppContext } from "../../App";
 export default function ModalDetails(props) {
 //____ mostrar o modal
     const [showModal, setShowModal] = useState(false);
-    const [existingStock, setExistingStock]= useState(props.stock);
+    // const [stock, setStock]= useState(props.stock);
 
 
     const setShowModalCode =(value)=>{
@@ -19,8 +19,10 @@ export default function ModalDetails(props) {
     }
 //__________//
     //usar context definido na app.js
-    const { dishes, setDishes } = useContext(AppContext);
-       
+    const { dishes, setDishes, stock, setStock } = useContext(AppContext);
+
+    
+    const extraArray=[]; //os extras têm de ser um array, para q o user possa escolher mais q 1
 // acrescentar o extra APENAS se o target=checked e o extra n existir já no array! se existir, 
 //fazer o splice do extra (extra é o indice neste caso, e 1 para o remover apenas a si mm)
     const handleExtras = (event, extra)=>{ 
@@ -32,33 +34,36 @@ export default function ModalDetails(props) {
         console.log(extraArray); 
     }  
     
-    const extraArray=[]; //os extras têm de ser um array, para q o user possa escolher mais q 1
 
     const handleSelectedDish =()=>{  
     //colocar dentro do array o q ja houver de dishes, e adicionar o obj com as propriedades q quero usar 
-    if(existingStock>0){
+    if(stock.get(props.id)>0){
+        let newStock = stock.get(props.id)
+            console.log(newStock)
         setDishes(
            [...dishes, 
             {
            name: props.name,
            price: props.price,
            extra: extraArray,
-           stock: props.stock,
+           stock: newStock,
            id: props.id,
            image: props.image,
            quantity: 1
             }
         ])
-        setExistingStock(existingStock-1)
+        setStock(stock.set(props.id, newStock-1)) //get- vai buscar o valor, e o set- faz o set do valor
+        // console.log(props.id)
     }
+    // console.log(stock.get(props.id))
    } 
-console.log(existingStock)
+// console.log(stock)
 
     return (
         <>
             <Button
-                color={existingStock<=0 ? "gray": "lime"}
-                disabled={existingStock<=0}
+                color={stock.get(props.id)<=0 ? "gray": "lime"}
+                disabled={stock<=0}
                 type="button"
                 onClick={(e) => setShowModalCode(true)}
                 ripple="light"
@@ -96,7 +101,7 @@ console.log(existingStock)
                 <div className="flex justify-center my-4">
                     <Button
                     className="flex w-fit mt-6 font-light"
-                    color={existingStock<=0? "gray" : "purple"}
+                    color={stock.get(props.id)<=0? "gray" : "purple"}
                     size="sm"
                     onClick={handleSelectedDish}
                     >
@@ -104,7 +109,7 @@ console.log(existingStock)
                          {props.price}
 
                     </Button>
-                    <span className="text-xs text-slate-400" >Stock: {existingStock}</span>
+                    <span className="text-xs text-slate-400" >Stock: {stock.get(props.id)}</span>
                 </div>
                 </ModalBody>
                 <ModalFooter>

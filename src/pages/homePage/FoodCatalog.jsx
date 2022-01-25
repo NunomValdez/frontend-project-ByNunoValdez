@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react'
 import PaginationCatalog from '../../components/compo.tailwind/Pagination';
 import FoodCards from './FoodCards'
+import { useContext } from 'react';
+import { AppContext } from '../../App';
 
 
 export default function FoodCatalog() {
@@ -15,13 +17,29 @@ export default function FoodCatalog() {
 //as props que terão em si o array de pratos vindos do fetch à API, que de inicio é um array vazio,
 //mas assim que o JSON é trabalhado, o array é populado com os pratos- 'https://61ddf19df60e8f0017668b31.mockapi.io/api/Menu'
 //___________________///////////__________________________
+const { setStock } = useContext(AppContext);
 
-    useEffect(() => {
-        fetch('https://61ddf19df60e8f0017668b31.mockapi.io/api/Menu')
-        .then(resp=>resp.json())
-        .then(data=> setfoodItems(data))
+useEffect(() => {
+    fetch('https://61ddf19df60e8f0017668b31.mockapi.io/api/Menu')
+    .then(resp=>resp.json())
+    .then(data=> {
+        setfoodItems(data)
+        
+        const stockArr = new Map()
+        
+        data.map(item => {
+            stockArr.set(item.id, item.stock)
+            // console.log(`{id: ${item.id}, stock: ${item.stock}}`) 
+            setStock(stockArr) // set to context para actualizar o context do stock:
+        })
+            // console.log(stockArr)
+            // console.log(stockArr.get('15'))
+        })
     }, []);
+    // console.log(stock.get(`${dish.id}`))
     
+// console.log(stock)
+   
 // na API fornecida vamos ter de ver se ha items em stock, se houver os pratos estarão disponiveis para compra, senao
 //nao se pode comprar e o card deve aparecer indisponivel ! --> a fazer 
     // console.log(foodItems);

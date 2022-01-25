@@ -21,13 +21,14 @@ import {
 
    export default function App() { 
     const [ dishes, setDishes ] = useState([]);
+    const [stock, setStock]= useState(new Map())
 
-    // const [existingStock, setExistingStock]=useState(0);
 
-console.log(dishes)
+
+// console.log(dishes)
     //Usar o nome de Utilizador que o user colocou na landingPage, para o levar para o formulário:
     const [userName, setUserName] = useState('');
-    console.log(userName);
+    // console.log(userName);
     
     //saber a quantidade de pedidos p pôr no botao do carrinho
     let numberOfOrders = dishes.length; 
@@ -36,7 +37,7 @@ console.log(dishes)
 //_____ estão a ser declarados os estados iniciais, e a funcao reducer q orquestra tudo
 
   return (
-  <AppContext.Provider value={{ dishes, setDishes, numberOfOrders, userName, setUserName }}>
+  <AppContext.Provider value={{ dishes, setDishes, numberOfOrders, userName, setUserName, stock, setStock}}>
       <BrowserRouter>
         <Routes>
           <>

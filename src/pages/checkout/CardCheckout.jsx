@@ -1,7 +1,12 @@
 import React from 'react'
+import { useContext } from 'react'
+import { AppContext } from '../../App'
 
-export default function CardCheckout({dish, id, i, handleDeleteDish, handleDecrement, handlePlus, getPriceValue}) {
+export default function CardCheckout({dish, id, i, handleDeleteDish, handleDecrement, handlePlus, getPriceValue, stock}) {
 
+    // const {stock, setStock}=useContext(AppContext);
+
+   let instantStock= stock.get(dish.id)
     return (
         <>
             <div id={id} className="products flex flex-row border border-dashed border-slate-50 bg-white bg-opacity-40 shadow-md rounded-xl overflow-hidden p-2 py-4">
@@ -17,21 +22,26 @@ export default function CardCheckout({dish, id, i, handleDeleteDish, handleDecre
                         ${dish.extra.length ===0 ? '' : ` with ${dish.extra} ` } `}
                         </h4> 
                     <div className="flex ml-5">
-                        <span id="minusSign">
-                            <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>handleDecrement(dish, i)} className="h-4 w-4 ml-1 cursor-pointer  text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>handleDecrement(dish, i, dish.id)} className="h-4 w-4 ml-1 cursor-pointer  text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </span>
                         <span className="ml-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="plus-sign" onClick={()=>handlePlus(dish)} className="h-4 w-4 cursor-pointer text-lime-600 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" id="plus-sign" onClick={()=>handlePlus(dish, dish.id)} className="h-4 w-4 cursor-pointer text-lime-600 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </span>
                     </div>
                     </div>
-                    <span className="ml-3">{(dish.quantity)}</span>
+
+                    <div className="ml-3">{dish.quantity}</div>
+{/* tira a quantidade de pratos adicionados, ao stock */}
                 </section>
-                    <p>{`Price: ${getPriceValue(dish.price)*dish.quantity}`}</p> 
+                    <div className="flex flex-col justify-between">
+                        <div className="text-xs text-slate-500">Stock: {stock.get(dish.id)}</div>
+                        <p className="text-sky-900 text-lg shadow-md rounded-md p-0.5">{`Price: ${getPriceValue(dish.price)*dish.quantity}`}</p> 
+                    </div>
             </div>
         </>
     )
