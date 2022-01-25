@@ -36,7 +36,8 @@ export default function Form() {
         setIsSubmit(true);
         console.log(formValues)
         console.log(formValues.username)
-        sessionStorage.setItem([userName], formValues.username)
+        // sessionStorage.setItem([userName], formValues.username)
+        sessionStorage.setItem(`${userName}`,JSON.stringify(formValues))
         // sessionStorage.setIgem(email, formValues.email)
         // sessionStorage.setItem(password, formValues.password)
         // sessionStorage.setItem(address, formValues.address)

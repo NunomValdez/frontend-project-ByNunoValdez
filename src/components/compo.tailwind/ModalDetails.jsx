@@ -38,7 +38,7 @@ export default function ModalDetails(props) {
     const handleSelectedDish =()=>{  
     //colocar dentro do array o q ja houver de dishes, e adicionar o obj com as propriedades q quero usar 
     if(stock.get(props.id)>0){
-        let newStock = stock.get(props.id)
+        let newStock = stock.get(props.id) //o newStock vai ser = ao stock do ID q vamos buscar(get) ao stock! assim está sempre actualizado
             console.log(newStock)
         setDishes(
            [...dishes, 
@@ -46,7 +46,7 @@ export default function ModalDetails(props) {
            name: props.name,
            price: props.price,
            extra: extraArray,
-           stock: newStock,
+           stock: newStock,      //o stock vai ser actualizado pq o newStock está a ir buscar info ao context, pelo stock.get(props.id)
            id: props.id,
            image: props.image,
            quantity: 1

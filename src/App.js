@@ -12,13 +12,10 @@ import {
 //o context tem de ser definido aqui, para q os vários states sejam globais...! (?)
 //fazendo createContext, podemos usar a tag ...Provider para providenciar states/props
 // globais aos componentes filhos, e assim passar info de um lado para o outro
-
+   export const AppContext = createContext([]);
 //agora q fiz o context para todos os filhos de App.js, posso passar os states dos componentes aqui 
 //e os devidos componentes vão usar os states definidos aqui neste App, embora os usem lá dentro de si mesmos 
 //através do useContext --> usar contexto dentro do elemento, contexto esse q é criado no pai de todos!
-
-   export const AppContext = createContext([]);
-
    export default function App() { 
     const [ dishes, setDishes ] = useState([]);
     const [stock, setStock]= useState(new Map())
