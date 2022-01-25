@@ -41,10 +41,10 @@ const handleDeleteDish=(i)=>{
 //Para termos as quantidades de cada pratos seleccionados:
 // let instantStock = stock.get(selectedId);
 const handlePlus=(dish, id)=>{
-    console.log(stock.get(id))
+    console.log(stock.get(id)) //para conseguirmos ver a quantidade de stock associado a determinado id, temos de fazer o stock.get(id)
      if(stock.get(id)>0){
         setCounter(dish.quantity +=1)
-        console.log(stock.set(id,stock.get(id)-1))
+        console.log(stock.set(id,stock.get(id)-1)) //se o stock.get>0, entao temos de actualizar o stock, fazendo o set desse mm stock, para aquele id usado
         // stock.set(id) -=1 
     }
     // setStock(stock-1)

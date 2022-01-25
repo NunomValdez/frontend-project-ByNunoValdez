@@ -9,7 +9,7 @@ export default function CardCheckout({dish, id, i, handleDeleteDish, handleDecre
    let instantStock= stock.get(dish.id)
     return (
         <>
-            <div id={id} className="products flex flex-row border border-dashed border-slate-50 bg-white bg-opacity-40 shadow-md rounded-xl overflow-hidden p-2 py-4">
+            <div id={id} className="products flex flex-row border border-dashed border-slate-50 bg-white bg-opacity-60 shadow-lg rounded-xl overflow-hidden p-4 py-4">
                 <section className="flex">
                     <span className="mr-2 self-center text-red-400 hover:text-orange-800 cursor-pointer"  onClick={()=>handleDeleteDish(i)}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -28,7 +28,7 @@ export default function CardCheckout({dish, id, i, handleDeleteDish, handleDecre
                             </svg>
                         </span>
                         <span className="ml-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" id="plus-sign" onClick={()=>handlePlus(dish, dish.id)} className="h-4 w-4 cursor-pointer text-lime-600 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" onClick={()=>handlePlus(dish, dish.id)} className="h-4 w-4 cursor-pointer text-lime-600 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </span>
@@ -39,8 +39,8 @@ export default function CardCheckout({dish, id, i, handleDeleteDish, handleDecre
 {/* tira a quantidade de pratos adicionados, ao stock */}
                 </section>
                     <div className="flex flex-col justify-between">
-                        <div className="text-xs text-slate-500">Stock: {stock.get(dish.id)}</div>
-                        <p className="text-sky-900 text-lg shadow-md rounded-md p-0.5">{`Price: ${getPriceValue(dish.price)*dish.quantity}`}</p> 
+                        <div className="text-xs text-slate-400">Stock: {stock.get(dish.id)}</div>
+                        <p className="text-sky-900 bg-zinc-50 shadow-slate-900 text-lg shadow-lg rounded-md p-0.5">{`Price: ${getPriceValue(dish.price)*dish.quantity}`}</p> 
                     </div>
             </div>
         </>

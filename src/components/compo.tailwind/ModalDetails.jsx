@@ -55,7 +55,7 @@ export default function ModalDetails(props) {
         setStock(stock.set(props.id, newStock-1)) //get- vai buscar o valor, e o set- faz o set do valor
         // console.log(props.id)
     }
-    // console.log(stock.get(props.id))
+        // console.log(stock.get(props.id))
    } 
 // console.log(stock)
 
