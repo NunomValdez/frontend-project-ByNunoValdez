@@ -15,7 +15,7 @@ export default function Checkout(props) {
     const [showForm, setShowForm]=useState(false);
     // nesta página terá de vir, por props, um array de pratos selecionados pelo user - STORE/REDUX/useCONTEXT
     // tb tem de vir  a quantidade de pratos a comprar _______//______
-    const { dishes, setDishes, stock} = useContext(AppContext)
+    const { dishes, setDishes, stock, setStock} = useContext(AppContext)
     //---- dps aqui usamos apenas o nome da função q actualiza o state/context q está no pai(dishes)
     
 
@@ -31,10 +31,11 @@ export default function Checkout(props) {
     })
 
 // Apagar um prato do carrinho:
-const handleDeleteDish=(i)=>{
+const handleDeleteDish=(i,id)=>{
     const newDishes = [...dishes]
         newDishes.splice(i, 1)
         setDishes(newDishes) //retorna os pratos que tiverem o id DIFERENTE
+        console.log(stock.set(id, stock.get(id)+1)) //quando o prato é apagado, incrementa o stock desse prato(id) em 1
 }
 
 // console.log(stock.get(selectedId))
@@ -55,14 +56,16 @@ const handlePlus=(dish, id)=>{
 // actualiza o estado do array dishes, passando-lhe o valor do array copiado e alterado! assim temos um novo array sem o elemento decrementado até ser = a 1:
 const handleDecrement=(dish, i, id)=>{  
     if(dish.quantity>1){
-        console.log(id)
+        console.log(id)       
+        console.log(stock.set(id,stock.get(id)+1))
         console.log(stock.get(id))
         setCounter(dish.quantity -= 1)
-        console.log(stock.set(id, stock.get(id)+1))
+
     }else{
         const newDishes = [...dishes]
         newDishes.splice(i, 1)
         setDishes(newDishes)
+        console.log(stock.set(id,stock.get(id)+1))
     }
 }
 

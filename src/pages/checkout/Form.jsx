@@ -8,9 +8,9 @@ export default function Form() {
     const { userName, setUserName }= useContext(AppContext); //Vamos pré-preencher o username caso o user já tenha colocado na página principal
 
     //ver como colocar o valor de cada input dentro de um objecto q englobe 
-    //todos os valores dos inputs
+    //todos os valores dos states iniciais
 
-    const inicialValues={ 
+    const inicialValues={  
         username:'', 
         email:'', 
         password:'' , 
@@ -25,7 +25,7 @@ export default function Form() {
   const handleChange = (e) => {
       const { name, value } = e.target; //destructuring dos atributos disponiveis no event.target! 
       setFormValues({...formValues, [name]: value})
-    console.log(formValues);
+    // console.log(formValues);
   }
 
 //   let email, password, address ='';
@@ -42,6 +42,7 @@ export default function Form() {
         // sessionStorage.setItem(password, formValues.password)
         // sessionStorage.setItem(address, formValues.address)
     }
+
     
     useEffect(()=>{
         console.log(formErrors)
@@ -75,6 +76,8 @@ export default function Form() {
         return errors;
     }
 
+console.log(`object.keys = ${Object.keys(formErrors)}`) //Object.keys retorna um array de props enumeraveis de um objecto, tipo for...In ( MDN- Object.keys() ) 
+// assim podemos usar a length do array, e fazer a verificação: se tiver erros, lengtth>0, se nao tiver erros, length===0
 
 return (
     <>

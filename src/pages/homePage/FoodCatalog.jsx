@@ -17,7 +17,7 @@ export default function FoodCatalog() {
 //as props que terão em si o array de pratos vindos do fetch à API, que de inicio é um array vazio,
 //mas assim que o JSON é trabalhado, o array é populado com os pratos- 'https://61ddf19df60e8f0017668b31.mockapi.io/api/Menu'
 //___________________///////////__________________________
-const { setStock } = useContext(AppContext);
+const { setStock, stock } = useContext(AppContext);
 
 useEffect(() => {
     fetch('https://61ddf19df60e8f0017668b31.mockapi.io/api/Menu')
@@ -25,20 +25,25 @@ useEffect(() => {
     .then(data=> {
         setfoodItems(data)
         
-        const stockArr = new Map()
-        
-        data.map(item => {
+        if(stock.size===0){ //a verificacao do size tem de ser do stock, q vem por context, pq é nele q se armazena o state, e o stockArr é so um auxiliar para popular o map no inicio
+            const stockArr = new Map()
+         data.map(item =>{
             stockArr.set(item.id, item.stock)
-            // console.log(`{id: ${item.id}, stock: ${item.stock}}`) 
-            setStock(stockArr) // set to context para actualizar o context do stock:
-        })
-            // console.log(stockArr)
-            // console.log(stockArr.get('15'))
+// para verificar se o stock tem alguma coisa lá dentro, temos de usar mm o context do stock,
+// pq este vai ser actualizado no inicio da APP, e actualizamos o setStock com o map stockArr inicial, 
+//dentro do if, pq so vai entrar neste if CASO O STOCK.SIZE SEJA ZERO
+// console.log(stockArr.size)
+                    })  
+                setStock(stockArr) 
+                // console.log(stockArr)
+            }
         })
     }, []);
     // console.log(stock.get(`${dish.id}`))
     
 // console.log(stock)
+let iterator = stock.entries();
+console.log(iterator)
    
 // na API fornecida vamos ter de ver se ha items em stock, se houver os pratos estarão disponiveis para compra, senao
 //nao se pode comprar e o card deve aparecer indisponivel ! --> a fazer 

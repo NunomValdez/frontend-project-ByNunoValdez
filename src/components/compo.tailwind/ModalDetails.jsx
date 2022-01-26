@@ -80,7 +80,7 @@ export default function ModalDetails(props) {
                     <img src={`/assets/images${props.image}`} alt={props.name} className="w-24"/>
                        "{props.description}"
                         </div>
-
+                        {/* <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61f123fad0d0eb84"></script> */}
                         <div id="dish-extras" className="font-extralight text-sm">
                            <span className="flex text-left mt-2"> Choose some extras:</span>
                             {
