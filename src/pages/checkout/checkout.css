@@ -1,6 +1,6 @@
 .checkout{
     /* background-image: url(../../../public/assets/images/240_F_113636348_FPQO3sUu2ZA3HR9zOzM4lnSiWEdsoqwu.jpeg); */
-    background: linear-gradient(rgba(255, 254, 254, 0.9), rgba(255, 255, 255, 0.999999)), url(../../../public/assets/images/240_F_163041925_tcGJgER4mxCnHhYSLfECvjlvyh5qZVGJ.jpeg);
+    background: linear-gradient(rgba(255, 254, 254, 0.938), rgba(255, 255, 255)), url(../../../public/assets/images/240_F_163041925_tcGJgER4mxCnHhYSLfECvjlvyh5qZVGJ.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -27,4 +27,46 @@
 .products{
     justify-content: space-between;
     margin-top: 5vh;
+    animation: checkoutCard 0.3s ease-in-out;
+    position: relative;
 }
+.products:hover{
+    transform: translateY(-2px);
+    transition: ease-in-out;
+}
+
+.form_div{
+    animation: form 0.3s ease-in-out;
+}
+
+@keyframes checkoutCard {
+0%{
+    opacity: 0;
+    transform: translateY(-7vh);
+}
+50%{
+    opacity: 0.5;
+    transform: translateY(-3vh);
+}
+100%{
+   opacity: 1;
+   transform: translateY(0vh);
+}
+
+}
+
+@keyframes form {
+    0%{
+        opacity: 0;
+        transform: translateX(7vw);
+    }
+    50%{
+        opacity: 0.5;
+        transform: translateX(3vw);
+    }
+    100%{
+       opacity: 1;
+       transform: translateX(0vw);
+    }
+    
+    }

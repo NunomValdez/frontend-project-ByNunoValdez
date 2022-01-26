@@ -82,14 +82,16 @@ console.log(`object.keys = ${Object.keys(formErrors)}`) //Object.keys retorna um
 return (
     <>
     {(Object.keys(formErrors).length === 0) && isSubmit ? (<div className="text-lg border border-solid rounded-lg p-2 text-lime-600 mx-auto shadow-lg w-fit">Signed in successfully!</div>) 
-    : (<div className="text-sm">Type your info please</div>) }
-    <form className="flex flex-col align-middle border rounded-2xl shadow-lg mx-auto w-fit p-6"
+    : (<div className="text-sm">Type your info please</div>) } 
+ {/* Se o objecto dos erros estiver vazio (length===0) e isSubmit for verdade, entao apresenta a div com Signed Successfully, se tiver erros (length>0, apresenta 'Type info please) */}
+    <form className="form_div flex flex-col align-middle border rounded-2xl shadow-lg mx-auto w-fit p-6"
      onSubmit={handleFormSubmit}>
         <div>
             <input type="text" 
             onChange={handleChange} 
             name="username"
             placeholder={userName.length>0? `${userName}` : 'Username'}
+            // este placeholder vai ter o nome q o user escreveu na landing page, e vai ser tb usado como key do valor q vai ser enviado para a session storage
             value={formValues.userName}
             id="first-name" 
             className="bg-zinc-100 border border-b border-slate-500 mt-4 p-2 " />

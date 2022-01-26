@@ -18,7 +18,7 @@ export default function CardCheckout({dish, id, i, handleDeleteDish, handleDecre
                     </span>
                     <img className="h-14 w-16 mr-3" src={`../assets/images${dish.image}`}/>
                     <div className="flex flex-col">
-                    <h4 className="text-safire text-md flex">{`${dish.name} 
+                    <h4 className="text-safire text-sm flex">{`${dish.name} 
                         ${dish.extra.length ===0 ? '' : ` with ${dish.extra} ` } `}
                         </h4> 
                     <div className="flex ml-5">

@@ -104,7 +104,7 @@ const handleClickOrder=()=>{
             </div>
             
         </section>
-        <div className="duration-500">
+        <div className="">
             {
                 showForm && 
                 <section className="mx-auto">
@@ -112,9 +112,9 @@ const handleClickOrder=()=>{
                 </section>
             }  
          </div>
-          <section className="flex justify-evenly mt-8">
+          <section className="flex justify-evenly mt-8 form_div">
             <Button className="rounded-2xl" onClick={()=>navigate('/')}>Home</Button>
-            <ShopButton nameButton="Order" numberShop={dishes.length} onClick={handleClickOrder} />
+            <ShopButton nameButton="Order" numberShop={dishes.length} onClick={handleClickOrder}/>
         </section>
     </section>
     )
