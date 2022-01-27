@@ -17,6 +17,7 @@ export default function Checkout(props) {
     // tb tem de vir  a quantidade de pratos a comprar _______//______
     const { dishes, setDishes, stock, setStock} = useContext(AppContext)
     //---- dps aqui usamos apenas o nome da função q actualiza o state/context q está no pai(dishes)
+    // const [isDeleted, setIsDeleted]= useState(false);
     
 
     //função que retira o valor do preço de um prato selecionado (preço na API está em string)
@@ -33,12 +34,13 @@ export default function Checkout(props) {
 // Apagar um prato do carrinho:
 const handleDeleteDish=(i,id, quantity)=>{
     const newDishes = [...dishes]
+    console.log(quantity);
     newDishes.splice(i, 1)
     setDishes(newDishes) //retorna os pratos que tiverem o id DIFERENTE
     if(quantity>1){ //quando o prato eliminado tiver quantidade>1, somar ao stock de pratos a quantidade q o user tinha pedido, para repôr o stock!
     console.log(stock.set(id, stock.get(id)+quantity))
     } else{
-        console.log(stock.set(id, stock.get(id)+1))
+        stock.set(id, stock.get(id)+1)
     }//quando o prato é apagado e quantidade==1, incrementa o stock desse prato(id) em 1
 
 }
@@ -84,7 +86,7 @@ const handleClickOrder=()=>{
 
     return (
     <section className="checkout mx-auto mt-4 sm:justify-around ">
-        <section className="flex flex-col w-auto justify-between lg:mx-28">            
+        <section className="flex flex-col w-auto justify-between lg:mx-32">            
             <h1 className="text-4xl p-2 titleCheckout">Shopping Cart</h1>
                 {
                 dishes.map((dish,i)=>
@@ -116,10 +118,11 @@ const handleClickOrder=()=>{
                 </section>
             }  
          </div>
-          <section className="flex justify-evenly mt-8 form_div">
+          <section className="flex justify-evenly mt-8 form_div pb-28">
             <Button className="rounded-full bg-teal-500 px-9" onClick={()=>navigate('/')}>Home</Button>
             <ShopButton nameButton="Order" numberShop={dishes.length} onClick={handleClickOrder}/>
         </section>
+        
     </section>
     )
 }

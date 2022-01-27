@@ -18,6 +18,8 @@ import {
 //através do useContext --> usar contexto dentro do elemento, contexto esse q é criado no pai de todos!
    export default function App() { 
     const [ dishes, setDishes ] = useState([]);
+    // const [isDeleted, setIsDeleted]= useState(false);
+
     const [stock, setStock]= useState(new Map())
 
 

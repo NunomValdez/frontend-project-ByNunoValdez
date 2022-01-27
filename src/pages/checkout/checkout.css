@@ -1,6 +1,6 @@
 .checkout{
     /* background-image: url(../../../public/assets/images/240_F_113636348_FPQO3sUu2ZA3HR9zOzM4lnSiWEdsoqwu.jpeg); */
-    background: linear-gradient(rgba(238, 238, 255, 0.801), rgb(255, 255, 255)), url(../../../public/assets/images/240_F_163041925_tcGJgER4mxCnHhYSLfECvjlvyh5qZVGJ.jpeg);
+    background: linear-gradient(rgba(247, 253, 250, 0.911), rgb(255, 255, 255)), url(../../../public/assets/images/240_F_163041925_tcGJgER4mxCnHhYSLfECvjlvyh5qZVGJ.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -42,7 +42,7 @@
     transition: cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
-.delete-card{
+/* .delete-card{
     animation: delete, 0.5s ease-out;
     
 }
@@ -66,7 +66,7 @@
             -ms-transform: scale3d(.3, .3, .3);
             transform: scale3d(.3, .3, .3)
           }
-        }
+        } */
 
     @keyframes checkoutCard {
         0%{
