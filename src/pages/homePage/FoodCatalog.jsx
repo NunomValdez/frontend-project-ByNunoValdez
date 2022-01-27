@@ -43,22 +43,13 @@ useEffect(() => {
             }
         })
     }, []);
-    // console.log(stock.get(`${dish.id}`))
-    
-// console.log(stock)
-// let iterator = stock.entries();
-// console.log(iterator)
-   
-// na API fornecida vamos ter de ver se ha items em stock, se houver os pratos estarão disponiveis para compra, senao
-//nao se pode comprar e o card deve aparecer indisponivel ! --> a fazer 
-    // console.log(foodItems);
-    
+
 
 
 //_________   Lógica da paginação para apresentar 6 cards por página:
     const indexOfLastItem = currentPage * itemsPerPage; // (qd currentPage =2, itemsPerPage= 2*6)
     const indexOfFirstItem = indexOfLastItem - itemsPerPage; // (o 1º elem da pagina é = ao index do ultimo elem - o nr de elementos por pagina)
-    const currentItems = filtered.slice(indexOfFirstItem, indexOfLastItem); //delimita os elem q aparecem em cada pagina, consoante o seu index
+    const currentItems = filtered.slice(indexOfFirstItem, indexOfLastItem); //delimita os elementos q aparecem em cada pagina, consoante o seu index -> array total de pratos, ou filtrados!
     const numberOfPages = Math.ceil((filtered.length)/itemsPerPage); //como fiz na paginação, desta maneira temos o nr de páginas a serem renderizadas (arredondando por cima)
 
 
@@ -78,26 +69,22 @@ useEffect(() => {
         }
     }
 
-
- //mudando de pagina n funcionava - temos de actualizar a pagina current
 const handleChangeSearch=(e)=>{
     let inputUser = e.target.value;
     let foodsFiltered = foodItems.filter(foodItem => foodItem.name.toLowerCase().includes(inputUser.toLowerCase()))
     setFiltered(foodsFiltered)
-    console.log(foodsFiltered)
+    // console.log(foodsFiltered)
     setCurrentPage(1)
 }
 
-
-
-    return ( 
+return ( 
     <>
         <h1 className="row-span-full text-stone-800 text-4xl shadow-sm p-7 bg-slate-50">Food Catalog</h1>
         <section className="mb-8  max-w-fit h-10 border-b-2 border-gray-300 mx-auto flex">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-        </svg>
-            <input type="text" name="input" placeholder="Search any dish" onChange={handleChangeSearch}  />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input type="text" name="input" className="text-sm text-slate-600" placeholder="Search any dish" onChange={handleChangeSearch}  />
         </section>  
 
         <div className="flex justify-center"> 
@@ -113,10 +100,7 @@ const handleChangeSearch=(e)=>{
             paginate={paginate}
             currentPage={currentPage}/>
         </div>
-        </>
-        )      
-    // return(
-    //     <div>Loading....</div>
-    // )   
+    </>
+    )      
 }
 

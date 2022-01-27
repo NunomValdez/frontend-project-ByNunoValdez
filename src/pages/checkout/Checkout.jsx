@@ -84,41 +84,41 @@ const handleClickOrder=()=>{
 }
 
 
-    return (
+return (
     <section className="checkout mx-auto mt-4 sm:justify-around ">
         <section className="flex flex-col w-auto justify-between lg:mx-32">            
             <h1 className="text-4xl p-2 titleCheckout">Shopping Cart</h1>
-                {
-                dishes.map((dish,i)=>
-                 <CardCheckout
-                    id={`${i}-${dish.id}CardCheckoutId`}
-                    key={i}
-                    className="h-12"
-                    dish={dish} 
-                    stock={stock}
-                    i={i} 
-                    handleDecrement={handleDecrement} 
-                    handlePlus={handlePlus} 
-                    getPriceValue={getPriceValue}
-                    handleDeleteDish={handleDeleteDish}/>
-                    )
-                } 
-            <div className="flex products flex-row border-b border-dashed  border-slate-400">
-                < h2 className=" text-tangerine text-md">Orders: {dishes.length>=2 ? `${dishes.length} dishes`: `${dishes.length} dish`}</h2>
-                {/* se o user escolher mais que 1 prato, aparecerá no plural, se escolher 1 ou 0 pratos, aparecerá singular */}
-                <p className="text-lime-600 font-extrabold">Total: {totalPrice}$</p>
-            </div>
+            {
+            dishes.map((dish,i)=>
+                <CardCheckout
+                id={`${i}-${dish.id}CardCheckoutId`}
+                key={i}
+                className="h-12"
+                dish={dish} 
+                stock={stock}
+                i={i} 
+                handleDecrement={handleDecrement} 
+                handlePlus={handlePlus} 
+                getPriceValue={getPriceValue}
+                handleDeleteDish={handleDeleteDish}/>
+                )
+            } 
+        <div className="flex products flex-row border-b border-dashed  border-slate-400">
+            < h2 className=" text-tangerine text-md">Orders: {dishes.length>=2 ? `${dishes.length} dishes`: `${dishes.length} dish`}</h2>
+            {/* se o user escolher mais que 1 prato, aparecerá no plural, se escolher 1 ou 0 pratos, aparecerá singular */}
+            <p className="text-lime-600 font-extrabold">Total: {totalPrice}$</p>
+        </div>
             
         </section>
         <div className="">
-            {
-                showForm && 
-                <section className="mx-auto">
-                    <Form />
-                </section>
-            }  
+        {
+            showForm && 
+            <section className="mx-auto">
+                <Form />
+            </section>
+        }  
          </div>
-          <section className="flex justify-evenly mt-8 form_div pb-28">
+        <section className="flex justify-evenly mt-8 form_div pb-28">
             <Button className="rounded-full bg-teal-500 px-9" onClick={()=>navigate('/')}>Home</Button>
             <ShopButton nameButton="Order" numberShop={dishes.length} onClick={handleClickOrder}/>
         </section>
