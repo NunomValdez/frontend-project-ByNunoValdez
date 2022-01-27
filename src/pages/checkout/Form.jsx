@@ -5,11 +5,10 @@ import { useContext } from 'react';
 
 export default function Form() {
 
-    const { userName, setUserName }= useContext(AppContext); //Vamos pré-preencher o username caso o user já tenha colocado na página principal
+    const { userName, setUserName, dishes }= useContext(AppContext); //Vamos pré-preencher o username caso o user já tenha colocado na página principal
 
     //ver como colocar o valor de cada input dentro de um objecto q englobe 
     //todos os valores dos states iniciais
-
     const inicialValues={  
         username:'', 
         email:'', 
@@ -24,33 +23,28 @@ export default function Form() {
 //__Name
   const handleChange = (e) => {
       const { name, value } = e.target; //destructuring dos atributos disponiveis no event.target! 
-      setFormValues({...formValues, [name]: value})
-    // console.log(formValues);
+      setFormValues({...formValues, ...dishes, [name]: value})
+    console.log(formValues);
   }
 
-//   let email, password, address ='';
+//ao clicar no submit, preciso de ter todos os dados do user e transformar isso em String para pôr na sessionStorage:
     const handleFormSubmit= (e) =>{
         e.preventDefault();
-
         setFormErrors(validate(formValues));
         setIsSubmit(true);
         console.log(formValues)
-        console.log(formValues.username)
-        // sessionStorage.setItem([userName], formValues.username)
         sessionStorage.setItem(`${userName}`,JSON.stringify(formValues))
-        // sessionStorage.setIgem(email, formValues.email)
-        // sessionStorage.setItem(password, formValues.password)
-        // sessionStorage.setItem(address, formValues.address)
     }
 
     
     useEffect(()=>{
-        console.log(formErrors)
+        // se o obj que tem os erros estiver a zeros e submit for true:
         if(Object.keys(formErrors).length === 0 && isSubmit){
             console.log(formValues);
         }
     },[formErrors]);
 
+    //para verificar se há erros no preenchimento do formulário, ha que ver os valores do input do user
     const validate=(values)=>{
         const errors={};
         const regex= /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i; //regular expression tirada da net!
@@ -76,7 +70,7 @@ export default function Form() {
         return errors;
     }
 
-console.log(`object.keys = ${Object.keys(formErrors)}`) //Object.keys retorna um array de props enumeraveis de um objecto, tipo for...In ( MDN- Object.keys() ) 
+// console.log(`object.keys = ${Object.keys(formErrors)}`) //Object.keys retorna um array de props enumeraveis de um objecto, tipo for...In ( MDN- Object.keys() ) 
 // assim podemos usar a length do array, e fazer a verificação: se tiver erros, lengtth>0, se nao tiver erros, length===0
 
 return (
@@ -138,9 +132,6 @@ return (
          Submit</button> 
      
     </form>
-    {/* {isSubmit &&(
-        <div>Signed in!</div>
-    )} */}
     </>
 )
 }
