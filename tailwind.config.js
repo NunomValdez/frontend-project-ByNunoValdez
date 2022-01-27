@@ -1,6 +1,5 @@
 module.exports = {
 
-  
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -18,7 +17,7 @@ module.exports = {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
     },
-   
+   //algumas cores que usarei no projeto
     extend: {
       colors:{
         primary: '#ff4800',

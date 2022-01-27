@@ -78,7 +78,7 @@ console.log(iterator)
     <h1 className="row-span-full text-stone-800 text-4xl shadow-sm p-7 bg-slate-50">Food Catalog</h1>
     <div className="flex justify-center"> 
         <FoodCards foodOptions={currentItems} /> 
-        {/* o FoodCards vai receber o foodOption como props, e trabalhar o array dentro do cards */}
+        {/* o FoodCards vai receber o foodOption como props, e trabalhar o array de dishes dentro do cards */}
     </div>
     <div>
         <PaginationCatalog 

@@ -31,13 +31,17 @@ export default function Checkout(props) {
     })
 
 // Apagar um prato do carrinho:
-const handleDeleteDish=(i,id)=>{
+const handleDeleteDish=(i,id, quantity)=>{
     const newDishes = [...dishes]
-        newDishes.splice(i, 1)
-        setDishes(newDishes) //retorna os pratos que tiverem o id DIFERENTE
-        console.log(stock.set(id, stock.get(id)+1)) //quando o prato é apagado, incrementa o stock desse prato(id) em 1
-}
+    newDishes.splice(i, 1)
+    setDishes(newDishes) //retorna os pratos que tiverem o id DIFERENTE
+    if(quantity>1){ //quando o prato eliminado tiver quantidade>1, somar ao stock de pratos a quantidade q o user tinha pedido, para repôr o stock!
+    console.log(stock.set(id, stock.get(id)+quantity))
+    } else{
+        console.log(stock.set(id, stock.get(id)+1))
+    }//quando o prato é apagado e quantidade==1, incrementa o stock desse prato(id) em 1
 
+}
 // console.log(stock.get(selectedId))
 //Para termos as quantidades de cada pratos seleccionados:
 // let instantStock = stock.get(selectedId);
@@ -79,8 +83,8 @@ const handleClickOrder=()=>{
 
 
     return (
-    <section className="checkout mx-auto mt-4 sm:justify-evenly">
-        <section className="flex flex-col w-auto justify-between ">            
+    <section className="checkout mx-auto mt-4 sm:justify-around ">
+        <section className="flex flex-col w-auto justify-between lg:mx-28">            
             <h1 className="text-4xl p-2 titleCheckout">Shopping Cart</h1>
                 {
                 dishes.map((dish,i)=>
@@ -113,7 +117,7 @@ const handleClickOrder=()=>{
             }  
          </div>
           <section className="flex justify-evenly mt-8 form_div">
-            <Button className="rounded-2xl" onClick={()=>navigate('/')}>Home</Button>
+            <Button className="rounded-full bg-teal-500 px-9" onClick={()=>navigate('/')}>Home</Button>
             <ShopButton nameButton="Order" numberShop={dishes.length} onClick={handleClickOrder}/>
         </section>
     </section>

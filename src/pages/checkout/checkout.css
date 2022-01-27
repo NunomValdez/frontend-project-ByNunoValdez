@@ -1,6 +1,6 @@
 .checkout{
     /* background-image: url(../../../public/assets/images/240_F_113636348_FPQO3sUu2ZA3HR9zOzM4lnSiWEdsoqwu.jpeg); */
-    background: linear-gradient(rgba(255, 254, 254, 0.938), rgba(255, 255, 255)), url(../../../public/assets/images/240_F_163041925_tcGJgER4mxCnHhYSLfECvjlvyh5qZVGJ.jpeg);
+    background: linear-gradient(rgba(238, 238, 255, 0.801), rgb(255, 255, 255)), url(../../../public/assets/images/240_F_163041925_tcGJgER4mxCnHhYSLfECvjlvyh5qZVGJ.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -12,6 +12,7 @@
     margin: auto;
     padding: 2vh 3vw 25vh 3vw;
     border-radius: 20px;
+    /* font-family: sans-serif; */
     /* box-shadow: 1px 1px 1px rgba(128, 128, 128, 0.24); */
     /* background-position: center;
     background-repeat: no-repeat;
@@ -26,47 +27,76 @@
 
 .products{
     justify-content: space-between;
-    margin-top: 5vh;
-    animation: checkoutCard 0.3s ease-in-out;
+    margin-top: 4vh;
+    animation: checkoutCard 0.5s ease-in-out;
     position: relative;
 }
 .products:hover{
-    transform: translateY(-2px);
-    transition: ease-in-out;
+    /* transform: translateY(-5px); */
+    transform: scale3d(1.03, 1.03, 1.03);
+    transition: cubic-bezier(0.68, -0.55, 0.27, 1.55);    
 }
 
 .form_div{
-    animation: form 0.3s ease-in-out;
+    animation: form 0.3s;
+    transition: cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
-@keyframes checkoutCard {
-0%{
-    opacity: 0;
-    transform: translateY(-7vh);
-}
-50%{
-    opacity: 0.5;
-    transform: translateY(-3vh);
-}
-100%{
-   opacity: 1;
-   transform: translateY(0vh);
-}
-
-}
-
-@keyframes form {
-    0%{
-        opacity: 0;
-        transform: translateX(7vw);
-    }
-    50%{
-        opacity: 0.5;
-        transform: translateX(3vw);
-    }
-    100%{
-       opacity: 1;
-       transform: translateX(0vw);
-    }
+.delete-card{
+    animation: delete, 0.5s ease-out;
     
+}
+
+    @keyframes delete{
+        20% {
+            -webkit-transform: scale3d(.9, .9, .9);
+            -ms-transform: scale3d(.9, .9, .9);
+            transform: scale3d(.9, .9, .9)
+          }
+          50%,
+          55% {
+            opacity: 1;
+            -webkit-transform: scale3d(1.1, 1.1, 1.1);
+            -ms-transform: scale3d(1.1, 1.1, 1.1);
+            transform: scale3d(1.1, 1.1, 1.1)
+          }
+          100% {
+            opacity: 0;
+            -webkit-transform: scale3d(.3, .3, .3);
+            -ms-transform: scale3d(.3, .3, .3);
+            transform: scale3d(.3, .3, .3)
+          }
+        }
+
+    @keyframes checkoutCard {
+        0%{
+            opacity: 0;
+            transform: translateY(-7vh);
+            transform: scale3d(1, 1, 1);
+        }
+        50%{
+            opacity: 0.5;
+            transform: translateY(-3vh);
+            transform: scale3d(1.05, 1.05, 1.05);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0vh);
+            transform: scale3d(1, 1, 1);
+        }
+    }
+
+    @keyframes form {
+        0%{
+            opacity: 0;
+            transform: translateX(7vw);
+        }
+        50%{
+            opacity: 0.5;
+            transform: translateX(3vw);
+        }
+        100%{
+            opacity: 1;
+            transform: translateX(0vw);
+        }
     }

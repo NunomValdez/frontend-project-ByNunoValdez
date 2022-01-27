@@ -5,7 +5,7 @@ import Button from '@material-tailwind/react/Button';
 export default function ShopButton(props) {
     return (
         <Button
-            color="blueGray"
+            color="indigo"
             buttonType="filled"
             size="regular"
             rounded={true}
@@ -20,7 +20,7 @@ export default function ShopButton(props) {
                 </svg>
             </span>
             {props.nameButton}
-            <span className="font-bold text-lg p-0.5 m-0.5 rounded-full bg-gradient-to-r from-lime-200 to-green">{props.numberShop}</span>
+            <span className="font-bold text-lg p-0.5 m-0.5 rounded-full bg-gradient-to-r from-lime-600 to-green px-1">{props.numberShop}</span>
         </Button>
     )
 }
