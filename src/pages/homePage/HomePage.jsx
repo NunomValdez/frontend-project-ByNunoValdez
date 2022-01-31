@@ -29,7 +29,7 @@ export default function HomePage() {
                             <h1 className="text-7xl font-light my-40">Good Food</h1>
                             <h2 className="text-xl">The best food market</h2>
                         </div>
-                        <div className="flex justify-start text-white p-3 pl-8 m-6">
+                        <div className="flex justify-start text-white px-7 cursor-pointer m-6">
                             <Login />
                         </div>
                         <a href="#food-catalog" className="hover:animate-bounce">

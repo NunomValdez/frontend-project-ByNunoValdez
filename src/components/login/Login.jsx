@@ -7,10 +7,10 @@ import { useContext } from 'react';
 
 export default function Login() {
 
-    // const [state, setState] = useState('');
+    const [inputName, setInputName] = useState(false);
+
 
     const { userName, setUserName } = useContext(AppContext);
-
 
     const handleChange=(e)=>{
         setUserName(e.target.value); 
@@ -19,17 +19,26 @@ export default function Login() {
         // console.log(e.target.value);
     }
 
+    
+
     const handleClick= () => {
         window.localStorage.setItem(`user ${userName}`, userName);
+        setInputName(true) ;
+        console.log(inputName)
     }
 
     return (
-            <section>
-                <div className="flex">
-                    <Input name="nome" onChange={handleChange} />
-                    <input type="button" value="Ok" onClick={handleClick} className="p-1 bg-diospiro bg-opacity-70 border-2 ml-2 rounded-2xl hover:bg-tangerine active:bg-brick"/>
-                </div>
-            </section>
-    )
+        <>
+            <div className="flex">
+                <Input name="nome" onChange={handleChange} />
+                <input type="button" value="Ok" onClick={handleClick} className="p-1 bg-diospiro cursor-pointer bg-opacity-70 px-6 border-2 ml-2 rounded-2xl hover:bg-tangerine active:bg-brick"/>
+            </div>  
+               { 
+                inputName && 
+                <p className="mx-auto animate-pulse text-sm font-semibold w-fit text-green-100 px-4 backdrop-brightness-50 border rounded-xl m-2 p-1">
+                    Your name was saved
+                </p>
+                }
+        </>
+        )
 }
-//fazer: se o utilizador nao existir: pede registo, se existir: faz o login

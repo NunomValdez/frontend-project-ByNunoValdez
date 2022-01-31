@@ -10,7 +10,7 @@ export default function Form() {
     //ver como colocar o valor de cada input dentro de um objecto q englobe 
     //todos os valores dos states iniciais
     const inicialValues={  
-        username:'', 
+        username: userName.length > 0 ? userName : '', 
         email:'', 
         password:'' , 
         address:''
@@ -35,17 +35,21 @@ export default function Form() {
         e.preventDefault();
         console.log(e.target);
         setFormErrors(validate(formValues));
-        setIsSubmit(true);
-        console.log(formValues)
-        sessionStorage.setItem(`${userName}`,JSON.stringify(formValues))
-        emailjs.sendForm(
-            'nuno_valdez_fernandes',
-            'template_m0h37uj', 
-            form.current, 
-            'user_Ls4TorVRwOpQFoAEpLhBP'
-            ).then(response=>{
-                console.log(response.json)
-            }).catch( error=> error)
+
+        console.log(Object.keys(formErrors).length)
+        if (!Object.keys(formErrors).length) { //enviar mail apenas se o objecto NÃO tiver nada lá dentro (ou seja, sem erros)
+            setIsSubmit(true);
+            console.log(formValues)
+            sessionStorage.setItem(`${userName}`,JSON.stringify(formValues))
+            emailjs.sendForm(
+                'nuno_valdez_fernandes',
+                'template_m0h37uj', 
+                form.current, 
+                'user_Ls4TorVRwOpQFoAEpLhBP'
+                ).then(response=>{
+                    console.log(response.json)
+                }).catch( error=> error)    
+        }
     }
 
     
@@ -96,7 +100,7 @@ return (
             <input type="text" 
             onChange={handleChange} 
             name="username"
-            placeholder={userName.length>0? `${userName}` : 'Username'}
+            placeholder='Username'
             // este placeholder vai ter o nome q o user escreveu na landing page, e vai ser tb usado como key do valor q vai ser enviado para a session storage
             value={formValues.userName}
             id="first-name" 
