@@ -28,7 +28,7 @@ export default function Login() {
     }
 
     return (
-        <>
+        <section>
             <div className="flex">
                 <Input name="nome" onChange={handleChange} />
                 <input type="button" value="Ok" onClick={handleClick} className="p-1 bg-diospiro cursor-pointer bg-opacity-70 px-6 border-2 ml-2 rounded-2xl hover:bg-tangerine active:bg-brick"/>
@@ -39,6 +39,6 @@ export default function Login() {
                     Your name was saved
                 </p>
                 }
-        </>
+        </section>
         )
 }
