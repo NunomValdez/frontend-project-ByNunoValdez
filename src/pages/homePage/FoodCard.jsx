@@ -20,7 +20,7 @@ export default function FoodCard(props) {
     return (
         <Card className="shadow-md bg-gray-100 max-w-sm min-w-fit">
             <CardImage
-            className="h-40 max-w-xs sm:max-w-xs "
+            className="h-40 mx-auto max-w-xs sm:max-w-xs "
                 src={`/assets/images${props.image}`}
                 alt="Card Image"
             />

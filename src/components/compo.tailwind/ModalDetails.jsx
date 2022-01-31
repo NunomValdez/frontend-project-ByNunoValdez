@@ -36,7 +36,7 @@ export default function ModalDetails(props) {
     
 
     const handleSelectedDish =()=>{  
-    //colocar dentro do array o q ja houver de dishes, e adicionar o obj com as propriedades q quero usar 
+    //colocar dentro do array o q ja houver de dishes selecionados, e adicionar um obj com as propriedades q quero usar
     if(stock.get(props.id)>0){
         let newStock = stock.get(props.id) //o newStock vai ser = ao stock do ID q vamos buscar(get) ao stock! assim está sempre actualizado
             console.log(newStock)
@@ -52,7 +52,7 @@ export default function ModalDetails(props) {
            quantity: 1
             }
         ])
-        setStock(stock.set(props.id, newStock-1)) //get- vai buscar o valor, e o set- faz o set do valor
+        setStock(stock.set(props.id, newStock-1)) //get-> vai buscar o valor, e o set- faz o set do valor
         // console.log(props.id)
     }
         // console.log(stock.get(props.id))
@@ -62,6 +62,7 @@ export default function ModalDetails(props) {
     return (
         <>
             <Button
+                className="flex mx-auto"
                 color={stock.get(props.id)<=0 ? "gray": "lime"}
                 disabled={stock<=0}
                 type="button"
@@ -72,17 +73,17 @@ export default function ModalDetails(props) {
             </Button>
 
             <Modal size="sm" active={showModal} toggler={() => setShowModal(false)}>
-                <ModalHeader toggler={() => setShowModal(false)} >
+                <ModalHeader toggler={() => setShowModal(false)}>
                     {props.name}
                 </ModalHeader>
-                <ModalBody >
-                    <div className="text-base leading-relaxed text-gray-600 font-light flex">
+                <ModalBody  >
+                    <div className="text-base leading-relaxed text-gray-600 font-light flex mx-auto">
                     <img src={`/assets/images${props.image}`} alt={props.name} className="w-24"/>
                        "{props.description}"
                         </div>
                         {/* <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-61f123fad0d0eb84"></script> */}
                         <div id="dish-extras" className="font-extralight text-sm">
-                           <span className="flex text-left mt-2"> Choose some extras:</span>
+                           <span className="flex text-left items-center my-2"> Choose some extras:</span>
                             {
                                 props.extras.map((extra,i) =>{ 
                                     // console.log(extra)
@@ -98,9 +99,9 @@ export default function ModalDetails(props) {
                             }
                         </div>
                         
-                <div className="flex justify-center my-4">
+                <div className="flex mx-auto my-2">
                     <Button
-                    className="flex w-fit mt-6 font-light"
+                    className="flex w-fit mt-6 mr-1 mx-auto font-light"
                     color={stock.get(props.id)<=0? "gray" : "purple"}
                     size="sm"
                     onClick={handleSelectedDish}
@@ -113,7 +114,7 @@ export default function ModalDetails(props) {
                 </div>
                 </ModalBody>
                 <ModalFooter>
-                <div className="flex flex-row items-center">
+                <div className="flex flex-row mx-auto">
                     <Button 
                         color="brown"
                         buttonType="link"

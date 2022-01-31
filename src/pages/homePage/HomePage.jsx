@@ -40,12 +40,7 @@ export default function HomePage() {
                     </div>
                 </section>
                 <section  id="food-catalog">
-                    <div>
-                        <FoodCatalog />
-                    </div>
-                    {/* <div>
-                        <PaginationCatalog />
-                    </div>*/}
+                    <FoodCatalog />
                 </section> 
                 <section className="flex shrink justify-center p-2.5">
                     <ShopButton 

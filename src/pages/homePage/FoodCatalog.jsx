@@ -91,7 +91,7 @@ return (
             <FoodCards foodOptions={currentItems} /> 
             {/* o FoodCards vai receber o foodOption como props, e trabalhar o array de dishes dentro do cards */}
         </div>
-        <div>
+        <div className="flex justify-center m-1 mb-2">
             <PaginationCatalog 
             handleLeftClick={handleLeftClick}
             handleRightClick={handleRightClick}

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <div className="flex flex-col text-neutral-500 p-0.5 border-gray-900">
+        <div className="flex flex-col text-neutral-400 p-1 border-gray-900 mt-1">
             <ul >
                 <li>Nuno Valdez Fernandes</li>
                 <li>nunomvmf@gmail.com</li>

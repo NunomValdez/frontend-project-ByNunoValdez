@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { AppContext } from '../../App';
 import { useContext } from 'react';
-
+import emailjs from 'emailjs-com';
 
 export default function Form() {
 
@@ -27,13 +27,25 @@ export default function Form() {
     console.log(formValues);
   }
 
+  //usando o useRef, para podermos ligar o formulário ao EmailJS (fazer referencia ao formulário), assim o 3º parametro aceite pela funcao vai ser o formulário preenchido pelo user!
+    const form = useRef();
+  
 //ao clicar no submit, preciso de ter todos os dados do user e transformar isso em String para pôr na sessionStorage:
     const handleFormSubmit= (e) =>{
         e.preventDefault();
+        console.log(e.target);
         setFormErrors(validate(formValues));
         setIsSubmit(true);
         console.log(formValues)
         sessionStorage.setItem(`${userName}`,JSON.stringify(formValues))
+        emailjs.sendForm(
+            'nuno_valdez_fernandes',
+            'template_m0h37uj', 
+            form.current, 
+            'user_Ls4TorVRwOpQFoAEpLhBP'
+            ).then(response=>{
+                console.log(response.json)
+            }).catch( error=> error)
     }
 
     
@@ -78,7 +90,7 @@ return (
     {(Object.keys(formErrors).length === 0) && isSubmit ? (<div className="text-lg border border-solid rounded-lg p-2 text-lime-600 mx-auto shadow-lg w-fit">Signed in successfully!</div>) 
     : (<div className="text-sm">Type your info please</div>) } 
  {/* Se o objecto dos erros estiver vazio (length===0) e isSubmit for verdade, entao apresenta a div com Signed Successfully, se tiver erros (length>0, apresenta 'Type info please) */}
-    <form className="form_div flex flex-col align-middle border rounded-2xl shadow-lg mx-auto w-fit p-6"
+    <form ref={form} className="form_div flex flex-col align-middle border rounded-2xl shadow-lg mx-auto w-fit p-6"
      onSubmit={handleFormSubmit}>
         <div>
             <input type="text" 
@@ -88,7 +100,7 @@ return (
             // este placeholder vai ter o nome q o user escreveu na landing page, e vai ser tb usado como key do valor q vai ser enviado para a session storage
             value={formValues.userName}
             id="first-name" 
-            className="bg-zinc-100 border border-b border-slate-500 mt-4 p-2 " />
+            className="bg-zinc-100 border border-b border-slate-500 mt-4 p-2 rounded-lg  focus:border-indigo-300 focus:ring-1 focus:ring-indigo-300" />
             <p className="text-diospiro">{formErrors.username}</p>
         </div>
         <div>
@@ -99,7 +111,7 @@ return (
             placeholder="Type your email" 
             id="email" 
             value={formValues.email}
-            className="bg-zinc-100 border border-b border-slate-500 mt-2 p-2"/>
+            className=" bg-zinc-100 border border-b border-slate-500 mt-2 p-2 rounded-lg  focus:border-indigo-300 focus:ring-1 focus:ring-indigo-300"/>
              <p className="text-diospiro">{formErrors.email}</p>
         </div>
         <div>
@@ -110,7 +122,7 @@ return (
             placeholder="Password" 
             value={formValues.password}
             id="pass" 
-            className="bg-zinc-100 border border-b border-slate-500 mt-2 p-2 "/>
+            className="bg-zinc-100 border border-b border-slate-500 mt-2 p-2 rounded-lg  focus:ring-indigo-300 focus:ring-1 focus:border-indigo-300"/>
              <p className="text-diospiro">{formErrors.password}</p>
         </div>
         <div>
@@ -120,7 +132,7 @@ return (
             name="address" 
             placeholder="Type your address" 
             id="address" 
-            className="bg-zinc-100 border border-b border-slate-500 mt-2 p-2"/>
+            className="bg-zinc-100 border border-b border-slate-500 mt-2 p-2 rounded-lg  focus:ring-indigo-300 focus:ring-1 focus:border-indigo-300"/>
             <p className="text-diospiro">{formErrors.address}</p>
         </div>
    

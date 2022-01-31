@@ -21,19 +21,19 @@ export default function PaginationCatalog({itemsPerPage, totalItems, paginate,
 
     return (
         <>
-        <Pagination>
-            <PaginationItem ripple="dark" onClick={()=>handleLeftClick()} className="cursor-pointer">
+        <Pagination className="flex" >
+            <PaginationItem ripple="dark" onClick={()=>handleLeftClick()} className="cursor-pointer m-3">
                 <Icon name="keyboard_arrow_left" />
            </PaginationItem>
                 {pageNumbers.map( number => {
                 return( 
                     <PaginationItem 
-                        color={currentPage === number ? "lime" : "gray" }
+                        color={currentPage === number ? "green" : "gray" }
                         ripple="light" 
                         key={number}
                         className="cursor-pointer"
                         onClick={()=>{
-                            paginate(number)
+                        paginate(number)
                         }}
                         > {number} 
                         </PaginationItem>)

@@ -6,7 +6,7 @@ export default function CardCheckout({dish, id, i, handleDeleteDish, handleDecre
 
     // const {stock, setStock}=useContext(AppContext);
 
-   let instantStock= stock.get(dish.id)
+//    let instantStock= stock.get(dish.id)
     return (
         <>
         <div id={id} className="products flex flex-row border border-dashed border-slate-50 bg-white bg-opacity-60 shadow-lg rounded-xl overflow-hidden p-4 py-4">
