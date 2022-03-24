@@ -1,4 +1,5 @@
-This is my front-end project using React, and trying to apply things i've learned @Flag, Portugal!
+Hi there! This is my front-end project using React,
+here i try to apply things i've learned at @Flag, Portugal!
 Hope you like it
 
 
